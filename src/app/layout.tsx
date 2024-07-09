@@ -16,14 +16,21 @@ const Layout = ({ children }: LayoutProps) => {
       <body>
         <header>
           <nav>
+            image here
             <Link href="/" passHref>
               <button>Home Page</button>
             </Link>
             <Link href="/about" passHref>
               <button>About</button>
             </Link>
-            <Link href="/items" passHref>
-              <button>Items</button>
+            <Link href="/profile" passHref>
+              <button>Profile</button>
+            </Link>
+            <Link href="/search" passHref>
+              <button>Search </button>
+            </Link>
+            <Link href="/calendar" passHref>
+              <button>Calendar</button>
             </Link>
           </nav>
         </header>
