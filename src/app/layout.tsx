@@ -11,26 +11,26 @@ const Layout = ({ children }: LayoutProps) => {
   return (
     <html>
       <head>
-        <title>plantsCare</title>
+        <title>plantCare</title>
       </head>
       <body>
         <header>
           <nav>
-            image here
+            <p>PlantCARE</p>
             <Link href="/" passHref>
-              <button>Home Page</button>
+              <button className={styles.button3}>Home Page</button>
             </Link>
             <Link href="/about" passHref>
-              <button>About</button>
+              <button className={styles.button3}>About</button>
             </Link>
             <Link href="/profile" passHref>
-              <button>Profile</button>
+              <button className={styles.button3}>Profile</button>
             </Link>
             <Link href="/search" passHref>
-              <button>Search </button>
+              <button className={styles.button3}>Search </button>
             </Link>
             <Link href="/calendar" passHref>
-              <button>Calendar</button>
+              <button className={styles.button3}>Calendar</button>
             </Link>
           </nav>
         </header>
