@@ -26,21 +26,124 @@
 }
 
 .headText span {
+    font-family: "Roboto", sans-serif;
     color: black;
     font-weight: 800;
 }
 
 .subHeadText {
+    font-family: "Roboto", sans-serif;
     font-weight: 900;
 }
 
 .descriptionText {
+    font-family: "Roboto", sans-serif;
 }
+
 .imageContainer {
+    font-family: "Roboto", sans-serif;
     display: flex;
     align-items: center;
 }
 
 .aboutPageImage {
+    font-family: "Roboto", sans-serif;
     height: auto;
+}
+
+
+.sticker {
+    background-color: #F4FBD7;
+    color: black;
+    padding: 10px 20px;
+    border-radius: 30px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    font-family: "Roboto", sans-serif;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    max-width: 40%;
+    margin-left: 30%;
+}
+
+.stickerImage {
+    width: 250px;
+    height: 200px;
+    border-radius: 10px;
+    margin-right: 15px;
+}
+
+.stickerText {
+    margin: 0; /* Remove default margin */
+    display: flex;
+    flex-direction: column; /* Stack title and description vertically */
+}
+
+.stickerText p {
+    margin-bottom: 5%; /* Remove default margin */
+    padding: 0;
+    font-family: "Roboto", sans-serif;
+}
+
+.stickerText h2 {
+    margin-left: 0.8%;
+    font-family: "Roboto", sans-serif;
+    font-weight: 900;
+}
+
+
+.stickerContainer {
+    display: flex;
+    margin-top: 2%;
+    gap: 1%;
+    margin-bottom: 8%;
+}
+
+.smallLeftSticker {
+    background-color: #F4FBD7;
+    color: black;
+    padding: 10px 15px;
+    border-radius: 30px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    font-family: "Roboto", sans-serif;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    width: 19%;
+    margin-left: 30%
+}
+
+.smallLeftStickerImage {
+    width: 110px;
+    height: 100px;
+    border-radius: 10px;
+    margin-right: 15px;
+}
+.smallLeftSticker h2 {
+    margin-left: 2%;
+    font-weight: 900;
+}
+
+.smallRightSticker {
+    background-color: #F4FBD7;
+    color: black;
+    padding: 10px 15px;
+    border-radius: 30px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    font-family: "Roboto", sans-serif;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    width: 19%;
+}
+.smallRightSticker h2 {
+    margin-left: 2%;
+    font-weight: 900;
+}
+
+.smallRightStickerImage {
+    width: 82px;
+    height: 71px;
+    border-radius: 10px;
+    margin-right: 15px;
 }

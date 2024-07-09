@@ -1,7 +1,7 @@
 import styles from "../styles/profile.module.css";
 import Image from "next/image"
 
-const aboutPage = () => {
+const profilePage = () => {
   return (
     <div className={styles.container}>
       <div className={styles.containerInfoCalendar}> 
@@ -50,4 +50,4 @@ const aboutPage = () => {
   );
 };
 
-export default aboutPage;
+export default profilePage;
