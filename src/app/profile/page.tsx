@@ -1,7 +1,7 @@
 import styles from "../styles/about.module.css";
 
-const aboutPage = () => {
+const profilePage = () => {
   return <div> profile page </div>;
 };
 
-export default aboutPage;
+export default profilePage;
