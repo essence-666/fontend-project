@@ -1,0 +1,46 @@
+.container {
+    display: flex;
+    align-items: flex-start; /* Align items at the top */
+}
+
+.textContainer {
+    margin-left: 10%;
+    margin-top: 4%;
+    font-size: 35px;
+    display: flex;
+    flex-direction: column;
+}
+
+.aboutPageImage {
+    margin-left: 50%;
+    height: auto;
+
+}
+
+.headText {
+    font-family: "Roboto", sans-serif;
+    font-weight: 800;
+    font-size: 50px;
+    color: #5E9172;
+    margin-bottom: -5%;
+}
+
+.headText span {
+    color: black;
+    font-weight: 800;
+}
+
+.subHeadText {
+    font-weight: 900;
+}
+
+.descriptionText {
+}
+.imageContainer {
+    display: flex;
+    align-items: center;
+}
+
+.aboutPageImage {
+    height: auto;
+}
