@@ -1,7 +1,26 @@
 import styles from "../styles/search.module.css";
 
 const searchPage = () => {
-  return <div> search aboutpage page </div>;
+  return (
+    <div>
+      <div className={styles.inputContainer}>
+        <input
+          className={styles.inputBox}
+          type="text"
+          placeholder="Search query..."
+        />
+      </div>
+      <div className={styles.categoriesContainer}>
+        <h1> Popular categories </h1>
+        <div className={styles.flowersContainer}> Pet friendly </div>
+        <div className={styles.flowersContainer}> Fruit bearing</div>
+        <div className={styles.flowersContainer}> Large</div>
+        <div className={styles.flowersContainer}> Shade tolerant</div>
+        <div className={styles.flowersContainer}> Easy care</div>
+        <div className={styles.flowersContainer}> Palms</div>
+      </div>
+    </div>
+  );
 };
 
 export default searchPage;
