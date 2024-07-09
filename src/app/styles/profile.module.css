@@ -1,0 +1,87 @@
+.container {
+    width: 1440px;
+    height: 924px;
+    padding: 40px 61px 40px 61px;
+}
+
+
+
+.containerInfoCalendar {
+    width: 620px;
+    height: 844px;
+    padding: 10px 20px 10px 20px;
+    gap: 50px;
+}
+
+
+
+
+
+.infoContainer {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* Чтобы текст располагался справа от изображения */
+    padding: 30px 50px 30px 50px;
+    width: 580px;
+    height: 260px;
+    border-radius: 40px;
+    gap: 10px;
+    background: linear-gradient(to right, #F3FAD7, #F4FBD74D);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+.imageContainer {
+    margin-right: 8%;
+    border-radius: 100px;
+}
+.image {
+    border-radius: 100px;
+}
+.textContainer {
+    width: 278px;
+    height: 250px;
+    gap: 7px;
+    padding: 10px;
+}
+.h1 {
+    font: Roboto;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 37.5px;
+    color: black;
+}
+.location {
+    width: 151px;
+    height: 25px;
+    gap: 9px;
+    
+}
+.email {
+    width: 258px;
+    height: 25px;
+    gap: 7px;
+}
+.descriptionText {
+    width: 258px;
+    height: 83px;
+    font: Roboto;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 23.44px;
+}
+.miniImage {
+    padding-right: 8px;
+}
+
+
+
+.calendarContainer {
+    width: 413px;
+    height: 481px;
+    border-radius: 25px;
+    border: 1px;
+    border: Miscellaneous/Bar border;
+    padding: 15px, 30px, 15px, 30px;
+    gap: 16px;
+    background: linear-gradient(to right, #F3FAD7, #F4FBD74D);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
