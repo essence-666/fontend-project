@@ -1,7 +1,7 @@
-import React from "react";
+import styles from "../styles/about.module.css";
 
 const aboutPage = () => {
-  return <div> hello! here is aboutpage </div>;
+  return <div> about page </div>;
 };
 
 export default aboutPage;

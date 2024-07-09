@@ -1,4 +1,4 @@
-import React from "react";
+import styles from "../styles/calendar.module.css";
 
 const calendarPage = () => {
   return <div> hello! here is calendar </div>;

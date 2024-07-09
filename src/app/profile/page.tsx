@@ -1,5 +1,7 @@
-const profilePage = () => {
-  return <div> profile page here </div>;
+import styles from "../styles/about.module.css";
+
+const aboutPage = () => {
+  return <div> profile page </div>;
 };
 
-export default profilePage;
+export default aboutPage;
