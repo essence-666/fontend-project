@@ -8,7 +8,7 @@ export default function Home() {
         <h1 className={styles.mainText}> Take care of your plants</h1>
         <p className={styles.subText}>
           {" "}
-          and we'll help you with it <br />
+          and we will help you with it <br />
         </p>
       </div>
       <div className={styles.textContainer}>

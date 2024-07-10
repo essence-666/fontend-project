@@ -1,15 +1,10 @@
 import styles from "../styles/search.module.css";
+import Search from "../components/Search";
 
 const searchPage = () => {
   return (
     <div>
-      <div className={styles.inputContainer}>
-        <input
-          className={styles.inputBox}
-          type="text"
-          placeholder="Search query..."
-        />
-      </div>
+      <Search />
       <div className={styles.categoriesContainer}>
         <h1> Popular categories </h1>
         <div className={styles.flowersContainer}> Pet friendly </div>
