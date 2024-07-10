@@ -1,3 +1,4 @@
+import Link from "next/link";
 import styles from "../styles/profile.module.css";
 import Image from "next/image"
 
@@ -15,7 +16,7 @@ const profilePage = () => {
                 />
               </div>
               <div className={styles.textContainer}>
-                <h1>Boris Griforievich</h1>
+                <h1 className={styles.name}>Boris Griforievich</h1>
                 <div className={styles.location}>
                   <Image className={styles.miniImage}
                       src={'/assets/locationSign.png'}
@@ -40,7 +41,15 @@ const profilePage = () => {
               </div>
           </div>
           <div className={styles.calendarContainer}>
-              
+              <h1 className={styles.calendarHead}>Calendar preview</h1>
+              <div className={styles.calendarPreview}>
+                
+              </div>
+              <div>
+                <Link href="/calendar" passHref>
+                  <button className={styles.toCalendarButton}>Go to calendar</button>
+                </Link>
+              </div>
           </div>
       </div>
       <div className={styles.containerCollection}>

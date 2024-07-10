@@ -7,6 +7,9 @@
 
 
 .containerInfoCalendar {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
     width: 620px;
     height: 844px;
     padding: 10px 20px 10px 20px;
@@ -27,7 +30,7 @@
     border-radius: 40px;
     gap: 10px;
     background: linear-gradient(to right, #F3FAD7, #F4FBD74D);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 4px 30px 0px #0000004D;
 }
 .imageContainer {
     margin-right: 8%;
@@ -42,7 +45,7 @@
     gap: 7px;
     padding: 10px;
 }
-.h1 {
+.name {
     font: Roboto;
     font-weight: 700;
     font-size: 32px;
@@ -75,6 +78,10 @@
 
 
 .calendarContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    justify-content: center;
     width: 413px;
     height: 481px;
     border-radius: 25px;
@@ -83,5 +90,33 @@
     padding: 15px, 30px, 15px, 30px;
     gap: 16px;
     background: linear-gradient(to right, #F3FAD7, #F4FBD74D);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 4px 30px 0px #0000004D;
+}
+.calendarHead {
+    height: 38px;
+    font-weight: 550;
+    line-height: 37.5px;
+    font-size: 32px;
+}   
+.calendarPreview {
+    width: 319px;
+    height: 332px;
+    border-radius: 30px;
+    border: 1px;
+    border-color: #7C7C7C;
+    background-color: #FFFFFF;
+    box-shadow: 0px 4px 0px 0px #00000040;
+}
+.toCalendarButton {
+    width: 150px;
+    height: 33px;
+    border-radius: 13px;
+    padding: 5px, 10px, 5px, 10px;
+    gap: 10px;
+    background-color: #ECB5BB;
+    box-shadow: 0px 2px 0px 0px #00000040;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 23.44px;
+    
 }
