@@ -16,7 +16,7 @@ const Layout = ({ children }: LayoutProps) => {
       <body>
         <header>
           <nav>
-            <p>PlantCARE</p>
+            <p id="title">PlantCARE</p>
             <Link href="/" passHref>
               <button className={styles.button3}>Home Page</button>
             </Link>

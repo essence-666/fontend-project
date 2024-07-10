@@ -11,7 +11,7 @@ header {
   border-radius: 0 0 10px 10px;
 }
 
-p {
+#title {
   margin: 0;
   display: inline-block;
   margin-left: 5px;
