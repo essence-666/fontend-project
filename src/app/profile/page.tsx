@@ -1,8 +1,8 @@
 import styles from "../styles/profile.module.css";
 import Image from "next/image";
-import emailIcon from "../../../public/emailSign.png";
-import locationIcon from "../../../public/locationSign.png";
-import profilePhoto from "../../../public/person.jpeg";
+import emailIcon from "../../../public/assets/emailSign.png";
+import locationIcon from "../../../public/assets/locationSign.png";
+import profilePhoto from "../../../public/assets/person.jpeg";
 
 const profilePage = () => {
   return (
