@@ -4,7 +4,7 @@
   border: 1px solid rgba(27, 31, 35, 0);
   box-shadow: rgba(27, 31, 35, 0) 0 1px 0;
   box-sizing: border-box;
-  color: #fff;
+  color: white;
   cursor: pointer;
   display: inline-block;
   font-size: medium;
@@ -26,7 +26,7 @@
 }
 
 .button3:hover {
-  background-color: #939393;
+  background-color: #6E8878;
   border-radius: 10px;
 }
 
@@ -43,7 +43,7 @@
 }
 
 .button3:active {
-  background-color: #298e46;
+  background-color: #939393;
   box-shadow: rgba(20, 70, 32, 0.2) 0 1px 0 inset;
   border-radius: 10px;
 }

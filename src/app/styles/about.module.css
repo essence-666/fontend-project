@@ -12,9 +12,8 @@
 }
 
 .aboutPageImage {
-    margin-left: 50%;
+    width: 50vw;
     height: auto;
-
 }
 
 .headText {
@@ -45,7 +44,6 @@
 .aboutPageImage {
     height: auto;
 }
-
 
 .sticker {
     background-color: #F4FBD7;
