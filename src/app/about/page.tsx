@@ -23,6 +23,7 @@ const aboutPage = () => {
                 </div>
                 <div className={styles.imageContainer}>
                     <Image
+
                         src={manAboutFlowers}
                         alt={"aboutInitImage"}
                         width={650}
@@ -37,6 +38,7 @@ const aboutPage = () => {
                     alt={"womanAboutFlowers"}
                     className={styles.stickerImage}
                 />
+
                 <div className={styles.stickerText}>
                     <h2>Watering reminders done right</h2>
                     <p>
@@ -61,6 +63,7 @@ const aboutPage = () => {
                         alt="wateringCalendarAbout"
                         className={styles.smallLeftStickerImage}
                     />
+
                     <div className={styles.stickerText}>
                         <h2>Watering Calendar</h2>
                         <p>Organize and plan your plant care schedule for the future!</p>
@@ -73,6 +76,7 @@ const aboutPage = () => {
                         alt="plantSearchAbout"
                         className={styles.smallRightStickerImage}
                     />
+
                     <div className={styles.stickerText}>
                         <h2>Plant search</h2>
                         <p>Search your plants by categories or by name!</p>

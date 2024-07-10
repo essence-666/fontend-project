@@ -17,6 +17,7 @@ const profilePage = () => {
               width={200}
               height={200}
             />
+
           </div>
           <div className={styles.textContainer}>
             <h1>Boris Griforievich</h1>
