@@ -1,9 +1,9 @@
 import styles from "../styles/about.module.css";
 import Image from "next/image";
-import manAboutFlowers from "../../../public/manAboutFlowers.png";
-import womanAboutFlowers from "../../../public/womanAboutFlowers.png";
-import wateringCalendar from "../../../public/wateringCalendarAbout.png";
-import plantSearch from "../../../public/plantSearchAbout.png";
+import manAboutFlowers from "../../../public/assets/manAboutFlowers.png";
+import womanAboutFlowers from "../../../public/assets/womanAboutFlowers.png";
+import wateringCalendar from "../../../public/assets/wateringCalendarAbout.png";
+import plantSearch from "../../../public/assets/plantSearchAbout.png";
 
 const aboutPage = () => {
     return (
