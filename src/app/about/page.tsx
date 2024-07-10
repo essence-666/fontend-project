@@ -22,7 +22,7 @@ const aboutPage = () => {
                 </div>
                 <div className={styles.imageContainer}>
                     <Image
-                        src={'/manAboutFlowers.png'}
+                        src={'/assets/manAboutFlowers.png'}
                         alt={'aboutInitImage'}
                         width={650}
                         height={506}
@@ -31,7 +31,7 @@ const aboutPage = () => {
                 </div>
             </div>
             <div className={styles.sticker}>
-                <img src={'/womanAboutFlowers.png'} alt={"womanAboutFlowers"} className={styles.stickerImage}/>
+                <Image src={'/assets/womanAboutFlowers.png'} alt={"womanAboutFlowers"} width={250} height={200} className={styles.stickerImage}/>
                 <div className={styles.stickerText}>
                     <h2>Watering reminders done right</h2>
                     <p>We often forget to take care of our little leafy friends, and they get upset!</p>
@@ -42,7 +42,7 @@ const aboutPage = () => {
 
             <div className={styles.stickerContainer}>
                 <div className={styles.smallLeftSticker}>
-                    <img src={"/wateringCalendarAbout.png"} alt="wateringCalendarAbout" className={styles.smallLeftStickerImage}/>
+                    <Image src={"/assets/wateringCalendarAbout.png"} alt="wateringCalendarAbout" width={110} height={100} className={styles.smallLeftStickerImage}/>
                     <div className={styles.stickerText}>
                         <h2>Watering Calendar</h2>
                         <p>Organize and plan your plant care schedule for the future!</p>
@@ -50,7 +50,7 @@ const aboutPage = () => {
                 </div>
 
                 <div className={styles.smallRightSticker}>
-                    <img src={"/plantSearchAbout.png"} alt="plantSearchAbout" className={styles.smallRightStickerImage}/>
+                    <Image src={"/assets/plantSearchAbout.png"} alt="plantSearchAbout" width={82} height={71} className={styles.smallRightStickerImage}/>
                     <div className={styles.stickerText}>
                         <h2>Plant search</h2>
                         <p>Search your plants by categories or by name!</p>

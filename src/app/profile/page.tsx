@@ -8,7 +8,7 @@ const profilePage = () => {
           <div className={styles.infoContainer}>
               <div className={styles.imageContainer}>
                 <Image className={styles.image}
-                    src={'/person.jpeg'}
+                    src={'/assets/person.jpeg'}
                     alt={'personInitPage'}
                     width={200}
                     height={200}
@@ -18,7 +18,7 @@ const profilePage = () => {
                 <h1>Boris Griforievich</h1>
                 <div className={styles.location}>
                   <Image className={styles.miniImage}
-                      src={'/locationSign.png'}
+                      src={'/assets/locationSign.png'}
                       alt={'personInitPage'}
                       width={15}
                       height={15}
@@ -27,7 +27,7 @@ const profilePage = () => {
                 </div>
                 <div className={styles.email}>
                   <Image className={styles.miniImage}
-                      src={'/emailSign.png'}
+                      src={'/assets/emailSign.png'}
                       alt={'personInitPage'}
                       width={15}
                       height={15}
