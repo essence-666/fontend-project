@@ -32,7 +32,6 @@ const Layout = ({ children }: LayoutProps) => {
             <Link href="/calendar" passHref>
               <button className={styles.button3}>Calendar</button>
             </Link>
-            ;
           </nav>
         </header>
         <main>{children}</main>
