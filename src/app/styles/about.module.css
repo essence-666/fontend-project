@@ -12,7 +12,7 @@
 }
 
 .aboutPageImage {
-    width: 50vw;
+    width: 40em;
     height: auto;
 }
 
@@ -29,20 +29,17 @@
 }
 
 .subHeadText {
-    font-weight: 900;
+    font-size: 40px;
+    font-weight: 600;
 }
 
 .descriptionText {
-    /** idk **/
+    font-size: 30px;
 }
 
 .imageContainer {
     display: flex;
     align-items: center;
-}
-
-.aboutPageImage {
-    height: auto;
 }
 
 .sticker {

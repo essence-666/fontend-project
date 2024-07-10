@@ -13,12 +13,9 @@ const aboutPage = () => {
                     <h1 className={styles.headText}>
                         PlantCARE <span>App</span>
                     </h1>
-                    <h2 className={styles.subHeadText}>A watering calendar</h2>
+                    <h2 className={styles.subHeadText}>A plant care calendar</h2>
                     <div className={styles.descriptionText}>
-                        PlantCARE helps you keep track of
-                    </div>
-                    <div className={styles.descriptionText}>
-                        your plants’ watering schedule
+                        PlantCARE helps you keep track of your plants' watering schedule
                     </div>
                 </div>
                 <div className={styles.imageContainer}>
