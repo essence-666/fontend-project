@@ -11,12 +11,12 @@ const Layout = ({ children }: LayoutProps) => {
   return (
     <html>
       <head>
-        <title>plantCare</title>
+        <title>PlantCare</title>
       </head>
       <body>
         <header>
           <nav>
-            <p id="title">PlantCARE</p>
+            <p className="title">PlantCARE</p>
             <Link href="/" passHref>
               <button className={styles.button3}>Home Page</button>
             </Link>
