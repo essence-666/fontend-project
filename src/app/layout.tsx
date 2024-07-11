@@ -30,45 +30,40 @@ const Layout = ({ children }: LayoutProps) => {
       <header>
         <nav>
           <p id="title">PlantCARE</p>
-          <Link href="/" passHref>
-            <button
-                className={`${styles.button3} ${activeButton === "/" ? styles.activeButton : ""}`}
-                onClick={() => handleButtonClick("/")}
-            >
+          <Link
+          href="/"
+          passHref
+          className={`${styles.button3} ${activeButton === "/" ? styles.activeButton : ""}`}
+          onClick={() => handleButtonClick("/")}>
               Home Page
-            </button>
           </Link>
-          <Link href="/about" passHref>
-            <button
-                className={`${styles.button3} ${activeButton === "/about" ? styles.activeButton : ""}`}
-                onClick={() => handleButtonClick("/about")}
-            >
+          <Link
+          href="/about"
+          passHref
+          className={`${styles.button3} ${activeButton === "/about" ? styles.activeButton : ""}`}
+          onClick={() => handleButtonClick("/about")}>
               About
-            </button>
           </Link>
-          <Link href="/profile" passHref>
-            <button
-                className={`${styles.button3} ${activeButton === "/profile" ? styles.activeButton : ""}`}
-                onClick={() => handleButtonClick("/profile")}
-            >
+          <Link
+          href="/profile"
+          passHref
+          className={`${styles.button3} ${activeButton === "/profile" ? styles.activeButton : ""}`}
+          onClick={() => handleButtonClick("/profile")}>
               Profile
-            </button>
           </Link>
-          <Link href="/search" passHref>
-            <button
-                className={`${styles.button3} ${activeButton === "/search" ? styles.activeButton : ""}`}
-                onClick={() => handleButtonClick("/search")}
-            >
+          <Link
+          href="/search"
+          passHref
+          className={`${styles.button3} ${activeButton === "/search" ? styles.activeButton : ""}`}
+          onClick={() => handleButtonClick("/search")}>
               Search
-            </button>
           </Link>
-          <Link href="/calendar" passHref>
-            <button
-                className={`${styles.button3} ${activeButton === "/calendar" ? styles.activeButton : ""}`}
-                onClick={() => handleButtonClick("/calendar")}
-            >
+          <Link
+          href="/calendar"
+          passHref
+          className={`${styles.button3} ${activeButton === "/calendar" ? styles.activeButton : ""}`}
+          onClick={() => handleButtonClick("/calendar")}>
               Calendar
-            </button>
           </Link>
         </nav>
       </header>

@@ -18,7 +18,6 @@
 }
 
 .headText {
-    font-family: "Roboto", sans-serif;
     font-weight: 800;
     font-size: 50px;
     color: #5E9172;
@@ -26,28 +25,23 @@
 }
 
 .headText span {
-    font-family: "Roboto", sans-serif;
     color: black;
     font-weight: 800;
 }
 
 .subHeadText {
-    font-family: "Roboto", sans-serif;
     font-weight: 900;
 }
 
 .descriptionText {
-    font-family: "Roboto", sans-serif;
 }
 
 .imageContainer {
-    font-family: "Roboto", sans-serif;
     display: flex;
     align-items: center;
 }
 
 .aboutPageImage {
-    font-family: "Roboto", sans-serif;
     height: auto;
 }
 
@@ -58,7 +52,6 @@
     padding: 10px 20px;
     border-radius: 30px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-    font-family: "Roboto", sans-serif;
     font-size: 18px;
     display: flex;
     align-items: center;
@@ -82,12 +75,10 @@
 .stickerText p {
     margin-bottom: 5%; /* Remove default margin */
     padding: 0;
-    font-family: "Roboto", sans-serif;
 }
 
 .stickerText h2 {
     margin-left: 0.8%;
-    font-family: "Roboto", sans-serif;
     font-weight: 900;
 }
 
@@ -105,7 +96,6 @@
     padding: 10px 15px;
     border-radius: 30px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    font-family: "Roboto", sans-serif;
     font-size: 16px;
     display: flex;
     align-items: center;
@@ -130,7 +120,6 @@
     padding: 10px 15px;
     border-radius: 30px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    font-family: "Roboto", sans-serif;
     font-size: 16px;
     display: flex;
     align-items: center;
