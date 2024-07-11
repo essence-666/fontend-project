@@ -1,7 +1,10 @@
 .container {
-  width: 1440px;
-  height: 924px;
-  padding: 40px 61px 40px 61px;
+    display: flex;
+    justify-content: space-between; 
+    width: 1440px;
+    height: 924px;
+    padding: 40px 61px 40px 200px;
+    gap: 50px;
 }
 
 .containerInfoCalendar {
@@ -97,6 +100,10 @@
     font-size: 32px;
 }   
 .calendarPreview {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
     width: 319px;
     height: 332px;
     border-radius: 30px;
@@ -104,6 +111,12 @@
     border-color: #7C7C7C;
     background-color: #FFFFFF;
     box-shadow: 0px 4px 0px 0px #00000040;
+    gap: 20px;
+    padding: 20px;
+}
+.toCalendarButtonContainer { /* добавил чтобы кнопку повыше сделать но не сделал */
+    display: flex;
+    gap: 10px;
 }
 .toCalendarButton {
     width: 150px;
@@ -116,5 +129,98 @@
     font-size: 20px;
     font-weight: 400;
     line-height: 23.44px;
-    
+}
+.Day {
+    display: flex;
+    justify-content: space-between; /* Размещение элементов по краям */
+    width: 100%; /* Чтобы контейнер занимал всю ширину */
+}
+
+.dayLeftPart, .dayRightPart {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Центрирование по вертикали */
+    gap: 20px;
+}
+
+.textDay {
+    font-size: 16px;
+    font-weight: bold;
+}
+.circle {
+    width: 40px;
+    height: 40px;
+    background-color: #4E7B58; /* Цвет фона, который использовался на вашем изображении */
+    border-radius: 50%; /* Закругление границ для создания круга */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white; /* Цвет текста */
+    font-weight: bold; /* Жирный текст */
+    font-size: 16px; /* Размер текста */
+}
+.plantOne {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 177px;
+    height: 40px;
+    border-radius: 15px;
+    background-color: #AEB8C7;
+    box-shadow: 2px 4px 10px #0000004D;
+} 
+
+
+
+.containerCollection {
+    display: flex;
+    flex-direction: column;
+    width: 640px;
+    height: 847px;
+    border-radius: 25px;
+    gap: 30px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 30px;
+    padding-right: 30px;
+    background: linear-gradient(to left, #F3FAD7, #F4FBD74D);
+    box-shadow: 0px 4px 30px 0px #0000004D; 
+}
+.collectionPreview {
+    align-self: center;
+    font-style: Ribeye Marrow;
+    padding-top: 20px;
+}
+.plant {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 174px;
+    height: 209px;
+    border-radius: 33px;
+    background-color: #FFFFFF;
+    box-shadow: 2px 4px 20px #0000004D;
+}
+.collection {
+    display: flex;
+    flex-wrap: wrap; /* Позволяет элементам переноситься на следующую строку */
+    justify-content: space-between; /* Разделение элементов по всей ширине */
+    gap: 20px; 
+}
+.plantInfo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%; /* Устанавливаем ширину на 100% родительского контейнера */
+    height: 100%;
+}
+.plantName {
+    font-size: 20px;
+    font-weight: 800;
+}
+.plantImage {
+    max-width: 100%; /* Устанавливаем максимальную ширину изображения */
+    max-height: 100%;
 }
