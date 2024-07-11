@@ -1,10 +1,8 @@
 .container {
-    width: 1440px;
-    height: 924px;
-    padding: 40px 61px 40px 61px;
+  width: 1440px;
+  height: 924px;
+  padding: 40px 61px 40px 61px;
 }
-
-
 
 .containerInfoCalendar {
     display: flex;
@@ -15,10 +13,6 @@
     padding: 10px 20px 10px 20px;
     gap: 50px;
 }
-
-
-
-
 
 .infoContainer {
     display: flex;
@@ -32,18 +26,21 @@
     background: linear-gradient(to right, #F3FAD7, #F4FBD74D);
     box-shadow: 0px 4px 30px 0px #0000004D;
 }
+
 .imageContainer {
-    margin-right: 8%;
-    border-radius: 100px;
+  margin-right: 8%;
+  border-radius: 100px;
 }
+
 .image {
-    border-radius: 100px;
+  border-radius: 100px;
 }
+
 .textContainer {
-    width: 278px;
-    height: 250px;
-    gap: 7px;
-    padding: 10px;
+  width: 278px;
+  height: 250px;
+  gap: 7px;
+  padding: 10px;
 }
 .name {
     font: Roboto;
@@ -52,30 +49,31 @@
     line-height: 37.5px;
     color: black;
 }
+
 .location {
-    width: 151px;
-    height: 25px;
-    gap: 9px;
-    
+  width: 151px;
+  height: 25px;
+  gap: 9px;
 }
+
 .email {
-    width: 258px;
-    height: 25px;
-    gap: 7px;
+  width: 258px;
+  height: 25px;
+  gap: 7px;
 }
+
 .descriptionText {
-    width: 258px;
-    height: 83px;
-    font: Roboto;
-    font-weight: 400;
-    font-size: 20px;
-    line-height: 23.44px;
+  width: 258px;
+  height: 83px;
+  font: Roboto;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 23.44px;
 }
+
 .miniImage {
-    padding-right: 8px;
+  padding-right: 8px;
 }
-
-
 
 .calendarContainer {
     display: flex;
