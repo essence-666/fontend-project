@@ -3,9 +3,50 @@
     src: local("Roboto"), url(../../../public/Roboto.ttf)
 }
 
+.reminderTextBox::-webkit-scrollbar {
+    width: 0;
+}
+
+.reminderElement::-webkit-scrollbar {
+    width: 0;
+}
+
 /* 
 Все что связано с reminder.tsx
 */
+
+.reminderElementToday{
+    width: calc(121px * 1.25);
+    height: calc(80px * 1.25);
+    border-radius: calc(15px * 1.25);
+    padding-left: calc(10px * 1.25);
+    padding-right: calc(10px * 1.25);
+    padding-top: calc(5px * 1.25);
+    padding-bottom: calc(5px * 1.25);
+    display: flex;
+    background-color: #AEB8C7;
+    word-wrap:break-word;
+    align-items: center;
+    overflow: auto;
+    /* overflow-y: overlay; */
+}
+
+.reminderTextBoxToday{
+    width: calc(81px * 1.25);
+    height: calc(42px * 1.25);
+    word-wrap:break-word;
+    display: flex;
+    word-wrap: break-word;
+    overflow:auto;
+    /* overflow-y: overlay; */
+}
+
+.reminderTextToday{
+    margin:auto;
+    font-family: "Roboto";
+    font-weight: 400;
+    font-size: 24px;
+}
 
 .reminderElement{
     width: 121px;
@@ -18,38 +59,100 @@
     display: flex;
     background-color: #AEB8C7;
     word-wrap:break-word;
-    text-align: center;
-    /* overflow: auto; */
+    align-items: center;
+    overflow: auto;
+    /* overflow-y: overlay; */
 }
 
 .reminderTextBox{
     width: 81px;
     height: 42px;
     word-wrap:break-word;
-    /* overflow: auto; */
+    display: flex;
+    word-wrap: break-word;
+    overflow:auto;
+    /* overflow-y: overlay; */
 }
 
 .reminderText{
+    margin:auto;
     font-family: "Roboto";
     font-weight: 400;
     font-size: 24px;
 }
 
 input[type = 'checkbox'].isDone{
+    -webkit-appearance: none;
+    appearance: none;
+    outline: none;
+}
+input[type = 'checkbox'].isDone{
     width: 34.5px;
     height: 34.5px;
-    /* -webkit-appearance:; */
-    /* appearance: none; */
-    outline: none;
     background-color: white;
     border-radius: 25px;
-    border: 1.5px;
+    border: 1.5px solid;
     border-color: black;
+    text-align: center;    
+}
+input[type = 'checkbox'].isDone:before{
+    content: '\2713';
+    display: inline-block;
+    color: black;
+    font-size: 30px;
+    line-height: 30px;
+    -webkit-transform: scale(0);
+    transform: scale(0);
+    -webkit-transition: 0.3s;
+    transition: 0.3s;
+}
+input[type = 'checkbox'].isDone:checked:before{    
+    -webkit-transform: scale(1);
+    transform: scale(1);
 }
 
 /* 
 Все что связано с day.tsx
 */
+
+.dayElementToday{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    grid-gap: 22px;
+}
+
+.dateNumBoxToday{
+    width: calc(66.89px * 1.25);
+    height: calc(66.89px * 1.25);
+    border-radius: calc(150px * 1.25);
+    background-color: #00696F;
+    text-align: center;
+}
+
+.dateNumToday{
+    margin-left: 0%;
+    padding-top: 25%;
+    font-family: "Roboto";
+    font-weight: 400;
+    font-size: 35px;
+    color: #FFFFFF;
+}
+
+.dateTextToday{
+    margin-left: 0%;
+    font-family: "Roboto";
+    font-weight: 400;
+    font-size: 35px;
+    color: black;
+}
+
+.remindersToday{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    grid-gap: 12px;
+}
 
 .dayElement{
     display: flex;
@@ -128,12 +231,12 @@ input[type = 'checkbox'].isDone{
 
 .month{
     margin: 0px;
-    padding-bottom: 5px;
-    padding-bottom: 5px;
+    padding-top: 5px;
     font-family: "Roboto";
     font-weight: 400;
     font-size: 32px;
     color: black;
+    vertical-align: top;
 }
 
 .button{
@@ -155,5 +258,5 @@ input[type = 'checkbox'].isDone{
     padding-top: 12px;
     display: flex;
     vertical-align: top;
-    grid-gap: 32.67px;
+    grid-gap: 25px;
 }
