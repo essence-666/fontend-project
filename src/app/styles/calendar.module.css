@@ -61,7 +61,7 @@ input[type = 'checkbox'].isDone{
 .dateNumBox{
     width: 66.89px;
     height: 66.89px;
-    border-radius: 150px;
+    border-radius: 50%;
     background-color: #B9BCB9;
     text-align: center;
 }
@@ -104,26 +104,24 @@ input[type = 'checkbox'].isDone{
 }
 
 .calendar{
-    width: 1340px;
-    height: 769px;
+    width: 80%;
+    height: fit-content;
     border-radius: 40px;
     background-color: #FFFFFF;
     border-style: solid;
     border-width: 1px;
     border-color: #858585;
-    margin-bottom: 50px;
-    margin-left: 40px;
+    margin: 0 auto;
+    position: relative;
+    padding: 40px;
 }
 
 .monthSelector{
-    width: 1260px;
-    height: 48px;
+    display: flex;
+    align-items: center;
     border-bottom-width: 1px;
     border-bottom-style: solid;
     border-bottom-color: black;
-    margin-left: 40px;
-    padding-top: 40px;
-    margin-right: 40px;
 }
 
 .month{
@@ -148,12 +146,10 @@ input[type = 'checkbox'].isDone{
 }
 
 .calendarDates{
-    align-self:end;
-    width: 1260px;
-    height: 641px;
-    margin-left: 44px;
+    height: fit-content;
+    margin: 0 44px;
     padding-top: 12px;
     display: flex;
-    vertical-align: top;
     grid-gap: 32.67px;
+    overflow-x: scroll;
 }
