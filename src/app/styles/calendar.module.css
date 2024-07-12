@@ -1,0 +1,155 @@
+@font-face {
+    font-family: "Roboto";
+    src: local("Roboto"), url(../../../public/Roboto.ttf)
+}
+
+/* 
+Все что связано с reminder.tsx
+*/
+
+.reminderElement{
+    width: 121px;
+    height: 80px;
+    border-radius: 15px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    display: flex;
+    background-color: #AEB8C7;
+    word-wrap:break-word;
+    text-align: center;
+    /* overflow: auto; */
+}
+
+.reminderTextBox{
+    width: 81px;
+    height: 42px;
+    word-wrap:break-word;
+    /* overflow: auto; */
+}
+
+.reminderText{
+    font-family: "Roboto";
+    font-weight: 400;
+    font-size: 24px;
+}
+
+input[type = 'checkbox'].isDone{
+    width: 34.5px;
+    height: 34.5px;
+    /* -webkit-appearance:; */
+    /* appearance: none; */
+    outline: none;
+    background-color: white;
+    border-radius: 25px;
+    border: 1.5px;
+    border-color: black;
+}
+
+/* 
+Все что связано с day.tsx
+*/
+
+.dayElement{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    grid-gap: 15px;
+}
+
+.dateNumBox{
+    width: 66.89px;
+    height: 66.89px;
+    border-radius: 50%;
+    background-color: #B9BCB9;
+    text-align: center;
+}
+
+.dateNum{
+    margin-left: 0%;
+    padding-top: 25%;
+    font-family: "Roboto";
+    font-weight: 400;
+    font-size: 24px;
+    color: #FFFFFF;
+}
+
+.dateText{
+    margin-left: 0%;
+    font-family: "Roboto";
+    font-weight: 400;
+    font-size: 24px;
+    color: black;
+}
+
+.reminders{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    grid-gap: 8px;
+}
+
+/* 
+Все что связано с page.tsx
+*/
+
+.calendarName{
+    margin-left: 40px;
+    margin-top: 40px;
+    font-family: "Roboto";
+    font-weight: 700;
+    font-size: 36px;
+    color: black;
+}
+
+.calendar{
+    width: 80%;
+    height: fit-content;
+    border-radius: 40px;
+    background-color: #FFFFFF;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #858585;
+    margin: 0 auto;
+    position: relative;
+    padding: 40px;
+}
+
+.monthSelector{
+    display: flex;
+    align-items: center;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    border-bottom-color: black;
+}
+
+.month{
+    margin: 0px;
+    padding-bottom: 5px;
+    padding-bottom: 5px;
+    font-family: "Roboto";
+    font-weight: 400;
+    font-size: 32px;
+    color: black;
+}
+
+.button{
+    width: 48px;
+    height: 48px;
+    background-color: white;
+    border-width: 0px;
+    padding-top: 0%;
+    padding-right: 0%;
+    padding-left: 0%;
+    padding-bottom: 5px;
+}
+
+.calendarDates{
+    height: fit-content;
+    margin: 0 44px;
+    padding-top: 12px;
+    display: flex;
+    grid-gap: 32.67px;
+    overflow-x: scroll;
+}
