@@ -1,10 +1,11 @@
 .container {
     display: flex;
     justify-content: space-between; 
-    width: 1440px;
-    height: 924px;
+    width: 95vw;   
+    height: 55vw;
     padding: 40px 61px 40px 200px;
-    gap: 50px;
+    gap: 100px;
+    box-sizing: border-box;
 }
 
 .containerInfoCalendar {
@@ -15,6 +16,9 @@
     height: 844px;
     padding: 10px 20px 10px 20px;
     gap: 50px;
+    flex: 1;
+    width: calc(50% - 50px); /* Ширина будет занимать половину доступного пространства, минус общий gap */
+
 }
 
 .infoContainer {
@@ -185,6 +189,7 @@
     padding-right: 30px;
     background: linear-gradient(to left, #F3FAD7, #F4FBD74D);
     box-shadow: 0px 4px 30px 0px #0000004D; 
+    overflow: auto;
 }
 .collectionPreview {
     align-self: center;
