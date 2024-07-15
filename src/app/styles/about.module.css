@@ -1,27 +1,22 @@
 .container {
+    font-size: 2rem;
     display: flex;
     align-items: flex-start; /* Align items at the top */
+    padding: 2rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
 }
 
 .textContainer {
-    margin-left: 10%;
-    margin-top: 4%;
-    font-size: 35px;
     display: flex;
     flex-direction: column;
 }
 
-.aboutPageImage {
-    margin-left: 50%;
-    height: auto;
-
-}
 
 .headText {
     font-weight: 800;
-    font-size: 50px;
-    color: #5E9172;
-    margin-bottom: -5%;
+    color: rgb(0,105,111);
 }
 
 .headText span {
@@ -47,7 +42,7 @@
 
 
 .sticker {
-    background-color: #F4FBD7;
+    background-color: #DDF9E8;
     color: black;
     padding: 10px 20px;
     border-radius: 30px;
@@ -55,8 +50,6 @@
     font-size: 18px;
     display: flex;
     align-items: center;
-    max-width: 40%;
-    margin-left: 30%;
 }
 
 .stickerImage {
@@ -73,25 +66,40 @@
 }
 
 .stickerText p {
-    margin-bottom: 5%; /* Remove default margin */
     padding: 0;
 }
 
 .stickerText h2 {
-    margin-left: 0.8%;
     font-weight: 900;
 }
 
 
 .stickerContainer {
     display: flex;
-    margin-top: 2%;
-    gap: 1%;
-    margin-bottom: 8%;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin: 0 auto;
+    justify-content: center;
+    width: 70%;
 }
 
+.stickerContainer > * {
+    flex: 1;
+}
+
+.stickerBottomRow {
+    all: inherit;
+    justify-content: space-between;
+    margin: 0;
+    width: 100%;
+}
+
+ .stickerBottomRow > * {
+    flex: 1;
+ }
+
 .smallLeftSticker {
-    background-color: #F4FBD7;
+    background-color: #DDF9E8;
     color: black;
     padding: 10px 15px;
     border-radius: 30px;
@@ -99,8 +107,6 @@
     font-size: 16px;
     display: flex;
     align-items: center;
-    width: 19%;
-    margin-left: 30%
 }
 
 .smallLeftStickerImage {
@@ -110,12 +116,11 @@
     margin-right: 15px;
 }
 .smallLeftSticker h2 {
-    margin-left: 2%;
     font-weight: 900;
 }
 
 .smallRightSticker {
-    background-color: #F4FBD7;
+    background-color: #DDF9E8;
     color: black;
     padding: 10px 15px;
     border-radius: 30px;
@@ -123,10 +128,8 @@
     font-size: 16px;
     display: flex;
     align-items: center;
-    width: 19%;
 }
 .smallRightSticker h2 {
-    margin-left: 2%;
     font-weight: 900;
 }
 
@@ -136,3 +139,4 @@
     border-radius: 10px;
     margin-right: 15px;
 }
+
