@@ -16,10 +16,10 @@ const calendarPage = () => {
       <div className={styles.calendar}>
         <div className={styles.monthSelector}>
           <button className={styles.button}>
-            <img src="../../../keyboard_arrow_down (1).png" alt=">" />    
+            <img src="/assets/keyboard_arrow_down (1).png" alt=">" />    
           </button>
           <button className={styles.button}>
-            <img src="../../../keyboard_arrow_down.png" alt=">" />
+            <img src="/assets/keyboard_arrow_down.png" alt=">" />
           </button>
           <p className={styles.month}>July/August 2024</p>
         </div>
