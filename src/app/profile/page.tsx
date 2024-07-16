@@ -5,6 +5,7 @@ import emailIcon from "../../../public/assets/emailSign.png";
 import locationIcon from "../../../public/assets/locationSign.png";
 import profilePhoto from "../../../public/assets/person.jpeg";
 import romashiPhoto from "../../../public/assets/romashki.png";
+import editPhoto from "../../../public/assets/edit.png"
 
 const profilePage = () => {
   return (
@@ -47,6 +48,16 @@ const profilePage = () => {
               Hello everyone! I am a young plant enthusiast!
             </div>
           </div>
+          <Link className="editButton" href={"/editProfile"}>
+            <Image
+              className={styles.editImage}
+              src={editPhoto}
+              alt={"personInitPage"}
+              width={50}
+              height={50}
+            />
+          </Link>
+          
         </div>
         <div className={styles.calendarContainer}>
         <h1 className={styles.calendarHead}>Calendar preview</h1>

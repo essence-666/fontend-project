@@ -78,6 +78,11 @@
   line-height: 23.44px;
 }
 
+.editButton {
+    display: flex;
+    
+}
+
 .miniImage {
   padding-right: 8px;
 }
