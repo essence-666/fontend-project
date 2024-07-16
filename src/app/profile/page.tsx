@@ -29,7 +29,7 @@ const profilePage = () => {
                 className={styles.miniImage}
                 src={locationIcon}
                 alt={"personInitPage"}
-                width={15}
+                width={20}
                 height={15}
               />
               Innopolis, Russia
@@ -39,7 +39,7 @@ const profilePage = () => {
                 className={styles.miniImage}
                 src={emailIcon}
                 alt={"personInitPage"}
-                width={15}
+                width={20}
                 height={15}
               />
               b.grigorievich@example.com
