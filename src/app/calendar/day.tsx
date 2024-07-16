@@ -7,14 +7,14 @@ const dayElement = (date: string, dayName: string, isToday: boolean) => {
     const exampleAbutilon = reminderElement("Abutilon", isToday)
     return (
         <div className={styles.dayElement}>
-            <p className={styles.dateText}>{dayName}</p>
+            <div className={styles.dateText}>{dayName}</div>
             <div className={styles.dateNumBox}>
-                <p className={styles.dateNum}>{date}</p>
+                <div className={styles.dateNum}>{date}</div>
             </div>
             <div className={styles.reminders}>
-                <p>{exampleRose}</p>
-                <p>{exampleCactus}</p>
-                <p>{exampleAbutilon}</p>
+                <div>{exampleRose}</div>
+                <div>{exampleCactus}</div>
+                <div>{exampleAbutilon}</div>
             </div>
         </div>
     ) 
