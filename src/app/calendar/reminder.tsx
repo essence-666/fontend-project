@@ -1,6 +1,5 @@
 import styles from "../styles/calendar.module.css";
 
-//TODO: узнать по повду того как будут добавляться напоминалки(параметры)
 const reminderElement = (plantName:string, isToday: boolean) => { 
     if(isToday){
         return( 

@@ -199,7 +199,7 @@ input[type = 'checkbox'].isDone:checked:before{
 
 .calendarName{
     margin-left: 40px;
-    margin-top: 40px;
+    margin-top: 100px;
     font-family: "Roboto";
     font-weight: 700;
     font-size: 36px;
@@ -220,18 +220,19 @@ input[type = 'checkbox'].isDone:checked:before{
 
 .monthSelector{
     width: 1260px;
-    height: 48px;
+    height: 70px;
     border-bottom-width: 1px;
     border-bottom-style: solid;
     border-bottom-color: black;
     margin-left: 40px;
-    padding-top: 40px;
+    /* padding-top: 60px; */
     margin-right: 40px;
+    display: flex;
 }
 
 .month{
     margin: 0px;
-    padding-top: 5px;
+    padding-top: 25px;
     font-family: "Roboto";
     font-weight: 400;
     font-size: 32px;
@@ -244,10 +245,10 @@ input[type = 'checkbox'].isDone:checked:before{
     height: 48px;
     background-color: white;
     border-width: 0px;
-    padding-top: 0%;
+    margin-top: 10px;
     padding-right: 0%;
     padding-left: 0%;
-    padding-bottom: 5px;
+    padding-bottom: 0px;
 }
 
 .calendarDates{
@@ -258,5 +259,5 @@ input[type = 'checkbox'].isDone:checked:before{
     padding-top: 12px;
     display: flex;
     vertical-align: top;
-    grid-gap: 25px;
+    grid-gap: 60px;
 }
