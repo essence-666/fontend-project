@@ -1,0 +1,13 @@
+.mainText {
+  color: black;
+}
+
+.subText {
+  color: gray;
+}
+
+.textContainer {
+  text-align: center;
+  margin-top: 15%;
+  font-size: 30px;
+}
