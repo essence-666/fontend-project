@@ -19,12 +19,14 @@ const calendarPage = () => {
         <div className={styles.monthSelector}>
           <button className={styles.button}>
             <Image
+            className={styles.button}
             src={leftButton}
             alt="<"
             />
           </button>
           <button className={styles.button}>
             <Image 
+            className={styles.button}
               src={rightButton}
               alt=">"
             />
