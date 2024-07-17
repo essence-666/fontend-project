@@ -8,3 +8,9 @@ export async function POST(request: NextRequest) {
     await Profile.create({name, place, email, description});
     return NextResponse.json({message: "Profile created"}, {status: 201});
 }
+
+export async function GET() {
+    await connectMongoDB();
+    const profile = await Profile.find();
+    return NextResponse.json({profile});
+}

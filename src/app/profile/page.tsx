@@ -6,8 +6,27 @@ import locationIcon from "../../../public/assets/locationSign.png";
 import profilePhoto from "../../../public/assets/person.jpeg";
 import romashiPhoto from "../../../public/assets/romashki.png";
 import editPhoto from "../../../public/assets/edit.png"
+import { ReactElement, JSXElementConstructor, ReactNode, ReactPortal, AwaitedReactNode, Key } from "react";
 
-const profilePage = () => {
+
+const getProfile = async () => {
+  try {
+    const res = await fetch("http://localhost:3000/api/profileApi", {
+      cache: "no-store"
+    });
+    if (!res.ok) {
+      throw new Error('Failed to get profile editions');
+    }
+    return res.json();
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+const profilePage = async () => {
+
+  const { profile } = await getProfile();
+
   return (
     <div className={styles.container}>
       <div className={styles.containerInfoCalendar}>
@@ -20,34 +39,39 @@ const profilePage = () => {
               width={200}
               height={200}
             />
-
           </div>
-          <div className={styles.textContainer}>
-            <h1>Boris Griforievich</h1>
-            <div className={styles.location}>
-              <Image
-                className={styles.miniImage}
-                src={locationIcon}
-                alt={"personInitPage"}
-                width={20}
-                height={15}
-              />
-              Innopolis, Russia
+          {profile.map((prof: {
+            place: String;
+            email: String;
+            description: String; name: String; 
+}, index: Key | null | undefined) => (
+            <div key={index} className={styles.textContainer}>
+              <h1>{prof.name}</h1>
+              <div className={styles.location}>
+                <Image
+                  className={styles.miniImage}
+                  src={locationIcon}
+                  alt={"personInitPage"}
+                  width={20}
+                  height={15}
+                />
+                {prof.place}
+              </div>
+              <div className={styles.email}>
+                <Image
+                  className={styles.miniImage}
+                  src={emailIcon}
+                  alt={"personInitPage"}
+                  width={20}
+                  height={15}
+                />
+                {prof.email}
+              </div>
+              <div className={styles.descriptionText}>
+                {prof.description}
+              </div>
             </div>
-            <div className={styles.email}>
-              <Image
-                className={styles.miniImage}
-                src={emailIcon}
-                alt={"personInitPage"}
-                width={20}
-                height={15}
-              />
-              b.grigorievich@example.com
-            </div>
-            <div className={styles.descriptionText}>
-              Hello everyone! I am a young plant enthusiast!
-            </div>
-          </div>
+          ))}
           <Link className="editButton" href={"/editProfile"}>
             <Image
               className={styles.editImage}
