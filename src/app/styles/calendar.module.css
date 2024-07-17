@@ -14,18 +14,15 @@
     background-color: #AEB8C7;
     word-wrap:break-word;
     text-align: center;
-    /* overflow: auto; */
 }
 
 .reminderTextBox{
     width: 81px;
     height: 42px;
     word-wrap:break-word;
-    /* overflow: auto; */
 }
 
 .reminderText{
-    font-family: "Roboto";
     font-weight: 400;
     font-size: 24px;
 }
@@ -126,6 +123,5 @@ input[type = 'checkbox'].isDone{
     height: fit-content;
     padding-top: 12px;
     display: flex;
-    gap: calc(100% / 8);
-    overflow-x: scroll;
+    justify-content: space-evenly;
 }
