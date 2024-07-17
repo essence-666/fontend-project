@@ -250,7 +250,7 @@ input[type = 'checkbox'].isDone:checked:before{
     padding-bottom: 5px;
 }
 
-.calendarDates{
+.calendarDates {
     align-self:end;
     width: 1260px;
     height: 641px;
