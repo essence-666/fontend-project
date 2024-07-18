@@ -14,9 +14,9 @@ const dayElement = (date: string, dayName: string, isToday: boolean) => {
                     <p className={styles.dateNumToday}>{date}</p>
                 </div>
                 <div className={styles.remindersToday}>
-                    <p>{exampleRose}</p>
-                    <p>{exampleCactus}</p>
-                    <p>{exampleAbutilon}</p>
+                    {exampleRose}
+                    {exampleCactus}
+                    {exampleAbutilon}
                 </div>
             </div>
         ) 
@@ -29,9 +29,9 @@ const dayElement = (date: string, dayName: string, isToday: boolean) => {
                     <p className={styles.dateNum}>{date}</p>
                 </div>
                 <div className={styles.reminders}>
-                    <p>{exampleRose}</p>
-                    <p>{exampleCactus}</p>
-                    <p>{exampleAbutilon}</p>
+                    {exampleRose}
+                    {exampleCactus}
+                    {exampleAbutilon}
                 </div>
             </div>
         ) 
