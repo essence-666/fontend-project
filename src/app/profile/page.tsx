@@ -7,11 +7,12 @@ import profilePhoto from "../../../public/assets/person.jpeg";
 import romashiPhoto from "../../../public/assets/romashki.png";
 import editPhoto from "../../../public/assets/edit.png"
 import { ReactElement, JSXElementConstructor, ReactNode, ReactPortal, AwaitedReactNode, Key } from "react";
+import { ObjectId } from "mongoose";
 
 
-const getProfile = async () => {
+const getProfileById = async (id : string) => {
   try {
-    const res = await fetch("http://localhost:3000/api/profileApi", {
+    const res = await fetch(`http://localhost:3000/api/profileApi?id=${id}`, {
       cache: "no-store"
     });
     if (!res.ok) {
@@ -23,9 +24,9 @@ const getProfile = async () => {
   }
 };
 
-const profilePage = async () => {
-
-  const { profile } = await getProfile();
+const profilePage = async ({params} : {params: {id: string}}) => {
+  const { id } = params
+  const { profile } = await getProfileById(id);
 
   return (
     <div className={styles.container}>
