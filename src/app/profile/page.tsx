@@ -173,7 +173,7 @@ const profilePage = async () => {
       <div className={styles.containerCollection}>
         <h1 className={styles.collectionPreview}> 
           Plant collection
-          <Link className="editButton" href={`/editFlowers/`}>
+          <Link className="editButton" href={`/addFlowers/`}>
             <Image
               className={styles.editImage}
               src={addPhoto}
