@@ -80,7 +80,11 @@ const FlowerElement = () => {
               height={50}
             />
           </Link>
-          <button onClick={removeFlower} className={styles.button}>
+          <Link
+            onClick={removeFlower}
+            className={styles.button}
+            href={"/profile"}
+          >
             <Image
               className={styles.buttonImage}
               src={delPhoto}
@@ -88,7 +92,7 @@ const FlowerElement = () => {
               width={50}
               height={50}
             />
-          </button>
+          </Link>
         </div>
       </div>
     </div>
