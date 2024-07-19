@@ -9,7 +9,7 @@ import profilePhoto from "../../../public/assets/person.jpeg";
 import editPhoto from "../../../public/assets/edit.png";
 import FlowerContainer from "../components/FlowerContainter";
 
-const URL = "http://localhost:3003";
+const URL = "https://frontend-project-3kzqnblkf-kleontas-projects.vercel.app/";
 
 interface Profile {
   _id: string;

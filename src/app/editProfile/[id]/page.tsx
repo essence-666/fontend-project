@@ -9,7 +9,7 @@ import Image from "next/image";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 
-const URL = "http://localhost:3001";
+const URL = "https://frontend-project-3kzqnblkf-kleontas-projects.vercel.app/";
 
 const getProfileById = async (id: string) => {
   try {
