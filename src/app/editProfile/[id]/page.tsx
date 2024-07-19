@@ -1,14 +1,18 @@
 "use client";
 
 import styles from "../../styles/editProfile.module.css";
-import editPhoto from "../../../../public/assets/editSecond.png";
+
+import editPhoto from "../../../../public/assets/editSecond.png"
 import photoPhoto from "../../../../public/assets/photo.png";
 import emailPhoto from "../../../../public/assets/emailSign.png";
 import homePhoto from "../../../../public/assets/home.png";
 import Image from "next/image";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
+import { UploadButton } from "@/utils/uploadthings";
+import buttonAppearance from "./buttonAppearance"
 import { URL } from "@/app/config";
+
 
 const getProfileById = async (id: string) => {
   try {
@@ -31,6 +35,7 @@ const EditProfilePage = ({ params }: { params: { id: string } }) => {
   const [newPlace, setNewPlace] = useState("");
   const [newEmail, setNewEmail] = useState("");
   const [newDescription, setNewDescription] = useState("");
+  const [imageUrl, setImageUrl] = useState<string>("");
 
   const router = useRouter();
 
@@ -95,15 +100,16 @@ const EditProfilePage = ({ params }: { params: { id: string } }) => {
             </div>
             <div className={styles.photo}>
               <div className={styles.head}>Photo</div>
-              <div className={styles.placeForPhoto}>
-                <Image
-                  className={styles.image}
-                  src={photoPhoto}
-                  alt={"personInitPage"}
-                  width={23}
-                  height={23}
+                <UploadButton
+                appearance={buttonAppearance}
+                endpoint="imageUploader"
+                onClientUploadComplete={(res) => {
+                  setImageUrl(res[0].url);
+                }}
+                onUploadError={(error: Error) => {
+                  alert(`ERROR! ${error.message}`);
+                }}
                 />
-              </div>
             </div>
           </div>
           <div className={styles.emailAndLocation}>

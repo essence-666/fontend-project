@@ -4,6 +4,7 @@ import React, { ReactNode, useEffect, useState } from "react";
 import Link from "next/link";
 import "./globals.css";
 import styles from "./styles/layout.module.css";
+import "@uploadthing/react/styles.css";
 
 type LayoutProps = {
   children: ReactNode;
