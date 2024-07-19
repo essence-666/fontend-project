@@ -1,7 +1,9 @@
 "use client";
 
 import styles from "../../styles/editProfile.module.css";
+
 import editPhoto from "../../../../public/assets/editSecond.png"
+import photoPhoto from "../../../../public/assets/photo.png";
 import emailPhoto from "../../../../public/assets/emailSign.png";
 import homePhoto from "../../../../public/assets/home.png";
 import Image from "next/image";
@@ -9,14 +11,16 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { UploadButton } from "@/utils/uploadthings";
 import buttonAppearance from "./buttonAppearance"
+import { URL } from "@/app/config";
+
 
 const getProfileById = async (id: string) => {
   try {
-    const res = await fetch(`http://localhost:3000/api/profileApi/${id}`, {
-      cache: "no-store"
+    const res = await fetch(`${URL}/api/profileApi/${id}`, {
+      cache: "no-store",
     });
     if (!res.ok) {
-      throw new Error('Failed to get profile editions');
+      throw new Error("Failed to get profile editions");
     }
     return res.json();
   } catch (error) {
@@ -52,12 +56,12 @@ const EditProfilePage = ({ params }: { params: { id: string } }) => {
     e.preventDefault();
 
     try {
-      const res = await fetch(`http://localhost:3000/api/profileApi/${id}`, {
+      const res = await fetch(`${URL}/api/profileApi/${id}`, {
         method: "PUT",
         headers: {
-          "Content-type": "application/json"
+          "Content-type": "application/json",
         },
-        body: JSON.stringify({ newName, newEmail, newPlace, newDescription })
+        body: JSON.stringify({ newName, newEmail, newPlace, newDescription }),
       });
 
       if (!res.ok) {
@@ -69,7 +73,6 @@ const EditProfilePage = ({ params }: { params: { id: string } }) => {
       console.log(error);
     }
   };
-
 
   return (
     <form onSubmit={handleSubmit}>
@@ -89,7 +92,7 @@ const EditProfilePage = ({ params }: { params: { id: string } }) => {
                 />
               </div>
               <input
-                onChange={e => setNewName(e.target.value)}
+                onChange={(e) => setNewName(e.target.value)}
                 value={newName}
                 className={styles.labelContainer}
                 placeholder="Name..."
@@ -122,7 +125,7 @@ const EditProfilePage = ({ params }: { params: { id: string } }) => {
                 />
               </div>
               <input
-                onChange={e => setNewEmail(e.target.value)}
+                onChange={(e) => setNewEmail(e.target.value)}
                 value={newEmail}
                 className={styles.labelContainer}
                 placeholder="Email..."
@@ -140,7 +143,7 @@ const EditProfilePage = ({ params }: { params: { id: string } }) => {
                 />
               </div>
               <input
-                onChange={e => setNewPlace(e.target.value)}
+                onChange={(e) => setNewPlace(e.target.value)}
                 value={newPlace}
                 className={styles.labelContainer}
                 placeholder="Your location..."
@@ -150,7 +153,7 @@ const EditProfilePage = ({ params }: { params: { id: string } }) => {
           <div className={styles.aboutContainer}>
             <div className={styles.head}>Tell about yourself!</div>
             <textarea
-              onChange={e => setNewDescription(e.target.value)}
+              onChange={(e) => setNewDescription(e.target.value)}
               value={newDescription}
               className={styles.labelAboutContainer}
               placeholder="Write about yourself..."
