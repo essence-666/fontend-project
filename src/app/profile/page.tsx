@@ -207,18 +207,20 @@ const profilePage = async () => {
               },
               index: Key | null | undefined,
             ) => (
-              <div key={index} className={styles.plant}>
-                <div className={styles.plantInfo}>
-                  <Image
-                    className={styles.plantImage}
-                    src={romashiPhoto}
-                    alt={"personInitPage"}
-                    width={166}
-                    height={134}
-                  />
-                  <p className={styles.plantName}> {flow.name} </p>
-                </div>
-              </div>
+              <Link key={index} href={"/editFlowers/"}>
+                <button className={styles.plant}>
+                  <div className={styles.plantInfo}>
+                    <Image
+                      className={styles.plantImage}
+                      src={romashiPhoto}
+                      alt={"personInitPage"}
+                      width={166}
+                      height={134}
+                    />
+                    <p className={styles.plantName}> {flow.name} </p>
+                  </div>
+                </button>
+              </Link>
             ),
           )}
         </div>
