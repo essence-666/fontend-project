@@ -1,25 +1,28 @@
+"use client";
+
 import styles from "../styles/editFlowers.module.css";
-import editPhoto from "../../../public/assets/editSecond.png"
+import editPhoto from "../../../public/assets/editSecond.png";
 import photoPhoto from "../../../public/assets/photo.png";
 import lupaPhoto from "../../../public/assets/lupa.png";
 import homePhoto from "../../../public/assets/home.png";
-import dropPhoto from "../../../public/assets/drop.png"
+import dropPhoto from "../../../public/assets/drop.png";
 import Image from "next/image";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { URL } from "@/app/config";
 
-const addFlowerPage = () => {
-    
-    const [name, setName] = useState("");
-    const [scientificName, setScientificName] = useState("");
-    const [location, setLocation] = useState("");
-    const [frequencyWatering, setFrequencyWatering] = useState("");
-    const [wateringChanges, setWateringChanges] = useState("");
-    
+
+const AddFlowerPage = () => {
+    const [name, setName] = useState<string>("");
+    const [scientificName, setScientificName] = useState<string>("");
+    const [location, setLocation] = useState<string>("");
+    const [frequencyWatering, setFrequencyWatering] = useState<string>("");
+    const [wateringChanges, setWateringChanges] = useState<string>("");
+
     const router = useRouter();
 
-    const handleSubmit = async (e: any) => {
+    // Измените тип события на более конкретный
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
         if (!name || !location || !frequencyWatering || !wateringChanges) {
@@ -33,23 +36,23 @@ const addFlowerPage = () => {
                 headers: {
                     "Content-type": "application/json"
                 },
-                body: JSON.stringify({name, scientificName, location, frequencyWatering, wateringChanges})
+                body: JSON.stringify({ name, scientificName, location, frequencyWatering, wateringChanges })
             });
 
             if (res.ok) {
-                router.push("/profile")
+                router.push("/profile");
             } else {
                 throw new Error("Failed to create a flower");
             }
         } catch (error) {
-            console.log(error);
+            console.error(error);
         }
-    }
+    };
 
     return (
         <form onSubmit={handleSubmit}>
             <div className={styles.container}>
-                <p className={styles.path}> Home {">"} Add flower </p>
+                <p className={styles.path}>Home {">"} Add flower</p>
                 <div className={styles.editContainer}>
                     <div className={styles.nameAndPhoto}>
                         <div className={styles.name}>
@@ -58,7 +61,7 @@ const addFlowerPage = () => {
                                 <Image
                                     className={styles.image}
                                     src={editPhoto}
-                                    alt={"personInitPage"}
+                                    alt={"Edit icon"}
                                     width={23}
                                     height={23}
                                 />
@@ -75,7 +78,7 @@ const addFlowerPage = () => {
                                 <Image
                                     className={styles.image}
                                     src={photoPhoto}
-                                    alt={"personInitPage"}
+                                    alt={"Photo icon"}
                                     width={23}
                                     height={23}
                                 />
@@ -88,7 +91,7 @@ const addFlowerPage = () => {
                             <Image
                                 className={styles.image}
                                 src={lupaPhoto}
-                                alt={"lupa"}
+                                alt={"Scientific name icon"}
                                 width={23}
                                 height={23}
                             />
@@ -106,7 +109,7 @@ const addFlowerPage = () => {
                             <Image
                                 className={styles.image}
                                 src={homePhoto}
-                                alt={"personInitPage"}
+                                alt={"Location icon"}
                                 width={23}
                                 height={23}
                             />
@@ -123,7 +126,7 @@ const addFlowerPage = () => {
                             <Image 
                                 className={styles.image}
                                 src={dropPhoto}
-                                alt={"drop"}
+                                alt={"Watering icon"}
                                 width={23}
                                 height={23}
                             />
@@ -131,12 +134,12 @@ const addFlowerPage = () => {
                         <div className={styles.wateringContainer}>
                             <div className={styles.head}>Every</div>
                             <input 
-                                onChange={(e) => setWateringChanges(e.target.value)}
+                                onChange={(e) => setFrequencyWatering(e.target.value)}
                                 className={styles.labelContainerSmall} 
                                 placeholder="Number..."
                             />
                             <input 
-                                onChange={(e) => setFrequencyWatering(e.target.value)}
+                                onChange={(e) => setWateringChanges(e.target.value)}
                                 className={styles.labelContainerMiddle} 
                                 placeholder="Days/Weeks/Months..."
                             />
@@ -151,4 +154,4 @@ const addFlowerPage = () => {
     );
 };
 
-export default addFlowerPage;
+export default AddFlowerPage;
