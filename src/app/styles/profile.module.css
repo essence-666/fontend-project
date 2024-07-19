@@ -78,7 +78,7 @@
 
 .editButton {
     display: flex;
-    
+    align-self: center;
 }
 
 .miniImage {
@@ -194,10 +194,13 @@
     flex: 1;
 }
 .collectionPreview {
+    display: flex;
     align-self: center;
-    font-style: Ribeye Marrow;
+    font-style: 'Ribeye Marrow';
     padding-top: 20px;
+    gap: 20px;
 }
+
 .plant {
     display: flex;
     flex-direction: column;
