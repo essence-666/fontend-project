@@ -7,6 +7,7 @@ import profilePhoto from "../../../public/assets/person.jpeg";
 import romashiPhoto from "../../../public/assets/romashki.png";
 import editPhoto from "../../../public/assets/edit.png";
 import addPhoto from "../../../public/assets/add.png";
+import { ReactElement, JSXElementConstructor, ReactNode, ReactPortal, AwaitedReactNode, Key } from "react";
 import { URL } from "../config";
 
 interface Profile {
@@ -18,6 +19,13 @@ interface Profile {
 }
 
 interface Flower {
+  map(arg0: (flow: {
+    name: string;
+    scientificName: string;
+    location: string;
+    frequencyWatering: number;
+    wateringChanges: string;
+  }, index: Key | null | undefined) => import("react").JSX.Element): ReactNode;
   name: string;
   scientificName: string;
   location: string;
@@ -48,7 +56,8 @@ const getFlowers = async (): Promise<Flower[]> => {
     if (!res.ok) {
       throw new Error("Failed to get flowers");
     }
-    return res.json();
+    const data: { [key: string]: Flower } = await res.json();
+    return Object.values(data);
   } catch (error) {
     console.error(error);
     return []; // Return an empty array in case of an error
@@ -56,8 +65,9 @@ const getFlowers = async (): Promise<Flower[]> => {
 };
 
 const ProfilePage = async () => {
-  const profile = await getProfile();
-  const flowers = await getFlowers();
+  const  profile  = await getProfile();
+  const  flowersFirst  = await getFlowers();
+  const flowers = flowersFirst[0];
 
   return (
     <div className={styles.container}>
