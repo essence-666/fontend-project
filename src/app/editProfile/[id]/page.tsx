@@ -10,7 +10,7 @@ import Image from "next/image";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { UploadButton } from "@/utils/uploadthings";
-import buttonAppearance from "./buttonAppearance"
+import buttonAppearance from "../../../../public/buttonAppearance"
 import { URL } from "@/app/config";
 
 

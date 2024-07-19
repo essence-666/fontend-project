@@ -72,15 +72,13 @@ const profilePage = async () => {
     <div className={styles.container}>
       <div className={styles.containerInfoCalendar}>
         <div className={styles.infoContainer}>
-          <div className={styles.imageContainer}>
-            <Image
-              className={styles.image}
-              src={profilePhoto}
-              alt={"personInitPage"}
-              width={200}
-              height={200}
-            />
-          </div>
+          <Image
+            className={styles.image}
+            src={profilePhoto}
+            alt={"personInitPage"}
+            width={100}
+            height={100}
+          />
           {profile.map(
             (
               prof: {
@@ -115,7 +113,7 @@ const profilePage = async () => {
                   {prof.email}
                 </div>
                 <div className={styles.descriptionText}>{prof.description}</div>
-                <Link className="editButton" href={`/editProfile/${prof._id}`}>
+                <Link className={styles.editButton} href={`/editProfile/${prof._id}`}>
                   <Image
                     className={styles.editImage}
                     src={editPhoto}

@@ -102,7 +102,6 @@ const flowerElement = (name: string, scientificName: string, location: string, f
                         />
                     </button>
                 </div>
-
             </div>
         </div>
     )

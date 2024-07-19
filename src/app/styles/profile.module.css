@@ -1,51 +1,51 @@
 .container {
     display: flex;
-    justify-content: space-between;
-    width: 95vw;
-    height: 50vw;
-    padding: 40px 61px 40px 200px;
-    gap: 100px;
+    flex-wrap: wrap;
+    justify-content: center;
     box-sizing: border-box;
+    padding: 40px 15%;
+    gap: 10px;
+}
+
+.container > *{
+    flex: 1 1 40%;
 }
 
 .containerInfoCalendar {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 620px;
-    height: 844px;
-    padding: 10px 20px 10px 20px;
-    gap: 50px;
-    flex: 1;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.containerInfoCalendar > * {
+    flex: 1 1 auto;
 }
 
 .infoContainer {
     display: flex;
     align-items: center;
-    justify-content: flex-start; /* Чтобы текст располагался справа от изображения */
-    padding: 30px 50px 30px 50px;
-    width: 680px;
-    height: 260px;
     border: 2px solid black;
-    border-radius: 40px;
+    border-radius: 25px;
     gap: 10px;
+    padding: 0 10px;
     background: #DEEAEA;
 }
 
-.imageContainer {
-    margin-right: 8%;
-    border-radius: 100px;
+.infoContainer > * {
+    flex: 1;
 }
 
 .image {
-    border-radius: 100px;
+    border-radius: 50%;
+    height: auto;
+    flex: 0;
 }
 
 .textContainer {
-    width: 278px;
-    height: 250px;
     gap: 7px;
     padding: 10px;
+    position: relative;
 }
 
 .name {
@@ -56,28 +56,23 @@
 }
 
 .location {
-    width: 151px;
-    height: 25px;
     gap: 9px;
 }
 
 .email {
-    width: 258px;
-    height: 25px;
     gap: 7px;
 }
 
 .descriptionText {
-    width: 258px;
-    height: 83px;
     font-weight: 400;
     font-size: 20px;
-    line-height: 23.44px;
 }
 
 .editButton {
     display: flex;
-
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
 }
 
 .miniImage {
@@ -89,8 +84,6 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 430px;
-    height: 481px;
     border-radius: 25px;
     border: 2px solid black;
     gap: 16px;
@@ -98,7 +91,6 @@
 }
 
 .calendarHead {
-    height: 38px;
     font-weight: 550;
     line-height: 37.5px;
     font-size: 32px;
@@ -109,8 +101,6 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    width: 319px;
-    height: 360px;
     border-radius: 30px;
     border: 2px solid black;
     background-color: #FFFFFF;
@@ -125,8 +115,6 @@
 }
 
 .toCalendarButton {
-    width: 150px;
-    height: 33px;
     border-radius: 13px;
     gap: 10px;
     background-color: #53b9be;
@@ -212,8 +200,6 @@
 .containerCollection {
     display: flex;
     flex-direction: column;
-    width: 640px;
-    height: 847px;
     border-radius: 25px;
     gap: 30px;
     padding-top: 15px;
@@ -223,7 +209,6 @@
     background: #DEEAEA;
     border: 2px solid black;
     overflow: auto;
-    flex: 1;
 }
 
 .collectionPreview {
