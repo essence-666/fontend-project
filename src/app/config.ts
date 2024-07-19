@@ -1,1 +1,2 @@
-export const URL = "http://localhost:3004";
+export const URL =
+  "https://frontend-project-git-buildfix-kleontas-projects.vercel.app";
