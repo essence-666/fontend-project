@@ -1,17 +1,17 @@
 "use client";
 
 import styles from "../../styles/editProfile.module.css";
-import editPhoto from "../../../public/assets/editSecond.png"
-import photoPhoto from "../../../public/assets/photo.png";
-import emailPhoto from "../../../public/assets/emailSign.png";
-import homePhoto from "../../../public/assets/home.png";
+import editPhoto from "../../../../public/assets/editSecond.png"
+import photoPhoto from "../../../../public/assets/photo.png";
+import emailPhoto from "../../../../public/assets/emailSign.png";
+import homePhoto from "../../../../public/assets/home.png";
 import Image from "next/image";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 
-const getProfileById = async (id: any) => {
+const getProfileById = async (id: string) => {
   try {
-    const res = await fetch(`http://localhost:3001/api/profileApi?id=${id}`, {
+    const res = await fetch(`http://localhost:3001/api/profileApi/${id}`, {
       cache: "no-store"
     });
     if (!res.ok) {
@@ -23,7 +23,7 @@ const getProfileById = async (id: any) => {
   }
 };
 
-const EditProfilePage = ({ params }: { params: { id: any } }) => {
+const EditProfilePage = ({ params }: { params: { id: string } }) => {
   const { id } = params;
   const [profile, setProfile] = useState(null);
   const [newName, setNewName] = useState("");
@@ -50,7 +50,7 @@ const EditProfilePage = ({ params }: { params: { id: any } }) => {
     e.preventDefault();
 
     try {
-      const res = await fetch(`http://localhost:3000/api/profileApi?id=${id}`, {
+      const res = await fetch(`http://localhost:3001/api/profileApi/${id}`, {
         method: "PUT",
         headers: {
           "Content-type": "application/json"
@@ -62,7 +62,7 @@ const EditProfilePage = ({ params }: { params: { id: any } }) => {
         throw new Error("Failed to update topic");
       }
 
-      router.push("/");
+      router.push("/profile");
     } catch (error) {
       console.log(error);
     }

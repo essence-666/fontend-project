@@ -1,31 +1,22 @@
-"use client";
-
 import Link from "next/link";
-import styles from "../../styles/profile.module.css";
+import styles from "../styles/profile.module.css";
 import Image from "next/image";
-import emailIcon from "../../../../public/assets/emailSign.png";
-import locationIcon from "../../../../public/assets/locationSign.png";
-import profilePhoto from "../../../../public/assets/person.jpeg";
-import romashiPhoto from "../../../../public/assets/romashki.png";
-import editPhoto from "../../../../public/assets/edit.png";
-import {
-  ReactElement,
-  JSXElementConstructor,
-  ReactNode,
-  ReactPortal,
-  AwaitedReactNode,
-  Key,
-} from "react";
+import emailIcon from "../../../public/assets/emailSign.png";
+import locationIcon from "../../../public/assets/locationSign.png";
+import profilePhoto from "../../../public/assets/person.jpeg";
+import romashiPhoto from "../../../public/assets/romashki.png";
+import editPhoto from "../../../public/assets/edit.png";
+import { ReactElement, JSXElementConstructor, ReactNode, ReactPortal, AwaitedReactNode, Key } from "react";
 import { ObjectId } from "mongoose";
-import { useRouter } from "next/navigation";
+
 
 const getProfile = async () => {
   try {
     const res = await fetch("http://localhost:3001/api/profileApi", {
-      cache: "no-store",
+      cache: "no-store"
     });
     if (!res.ok) {
-      throw new Error("Failed to get profile editions");
+      throw new Error('Failed to get profile editions');
     }
     return res.json();
   } catch (error) {
@@ -33,7 +24,7 @@ const getProfile = async () => {
   }
 };
 
-const profilePage = async ({ params }: { params: { id: string } }) => {
+const profilePage = async () => {
   const { profile } = await getProfile();
 
   return (
