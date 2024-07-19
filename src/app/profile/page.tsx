@@ -7,7 +7,6 @@ import profilePhoto from "../../../public/assets/person.jpeg";
 import romashiPhoto from "../../../public/assets/romashki.png";
 import editPhoto from "../../../public/assets/edit.png";
 import addPhoto from "../../../public/assets/add.png";
-import { Key } from "react";
 import { URL } from "../config";
 
 interface Profile {
@@ -68,46 +67,50 @@ const ProfilePage = async () => {
             <Image
               className={styles.image}
               src={profilePhoto}
-              alt={"personInitPage"}
+              alt="personInitPage"
               width={200}
               height={200}
             />
           </div>
-          {profile.map((prof, index) => (
-            <div key={index} className={styles.textContainer}>
-              <h1>{prof.name}</h1>
-              <div className={styles.location}>
-                <Image
-                  className={styles.miniImage}
-                  src={locationIcon}
-                  alt={"personInitPage"}
-                  width={20}
-                  height={15}
-                />
-                {prof.place}
+          {Array.isArray(profile) && profile.length > 0 ? (
+            profile.map((prof, index) => (
+              <div key={index} className={styles.textContainer}>
+                <h1>{prof.name}</h1>
+                <div className={styles.location}>
+                  <Image
+                    className={styles.miniImage}
+                    src={locationIcon}
+                    alt="personInitPage"
+                    width={20}
+                    height={15}
+                  />
+                  {prof.place}
+                </div>
+                <div className={styles.email}>
+                  <Image
+                    className={styles.miniImage}
+                    src={emailIcon}
+                    alt="personInitPage"
+                    width={20}
+                    height={15}
+                  />
+                  {prof.email}
+                </div>
+                <div className={styles.descriptionText}>{prof.description}</div>
+                <Link className="editButton" href={`/editProfile/${prof._id}`}>
+                  <Image
+                    className={styles.editImage}
+                    src={editPhoto}
+                    alt="personInitPage"
+                    width={50}
+                    height={50}
+                  />
+                </Link>
               </div>
-              <div className={styles.email}>
-                <Image
-                  className={styles.miniImage}
-                  src={emailIcon}
-                  alt={"personInitPage"}
-                  width={20}
-                  height={15}
-                />
-                {prof.email}
-              </div>
-              <div className={styles.descriptionText}>{prof.description}</div>
-              <Link className="editButton" href={`/editProfile/${prof._id}`}>
-                <Image
-                  className={styles.editImage}
-                  src={editPhoto}
-                  alt={"personInitPage"}
-                  width={50}
-                  height={50}
-                />
-              </Link>
-            </div>
-          ))}
+            ))
+          ) : (
+            <p>No profile information available.</p>
+          )}
         </div>
         <div className={styles.calendarContainer}>
           <h1 className={styles.calendarHead}>Calendar preview</h1>
@@ -115,7 +118,7 @@ const ProfilePage = async () => {
             <div className={styles.Day}>
               <div className={styles.dayLeftPart}>
                 <p className={styles.textDay}>Mon</p>
-                <p className={styles.circle}> 8 </p>
+                <p className={styles.circle}>8</p>
               </div>
               <div className={styles.dayRightPart}>
                 <div className={styles.plantOne}>
@@ -132,7 +135,7 @@ const ProfilePage = async () => {
             <div className={styles.Day}>
               <div className={styles.dayLeftPart}>
                 <p className={styles.textDay}>Mon</p>
-                <p className={styles.circle}> 8 </p>
+                <p className={styles.circle}>8</p>
               </div>
               <div className={styles.dayRightPart}>
                 <div className={styles.plantOne}>
@@ -163,27 +166,31 @@ const ProfilePage = async () => {
             <Image
               className={styles.editImage}
               src={addPhoto}
-              alt={"personInitPage"}
+              alt="personInitPage"
               width={50}
               height={50}
             />
           </Link>
         </h1>
         <div className={styles.collection}>
-          {flowers.map((flow, index) => (
-            <div key={index} className={styles.plant}>
-              <div className={styles.plantInfo}>
-                <Image
-                  className={styles.plantImage}
-                  src={romashiPhoto}
-                  alt={"personInitPage"}
-                  width={166}
-                  height={134}
-                />
-                <p className={styles.plantName}>{flow.name}</p>
+          {Array.isArray(flowers) && flowers.length > 0 ? (
+            flowers.map((flow, index) => (
+              <div key={index} className={styles.plant}>
+                <div className={styles.plantInfo}>
+                  <Image
+                    className={styles.plantImage}
+                    src={romashiPhoto}
+                    alt="personInitPage"
+                    width={166}
+                    height={134}
+                  />
+                  <p className={styles.plantName}>{flow.name}</p>
+                </div>
               </div>
-            </div>
-          ))}
+            ))
+          ) : (
+            <p>No flowers available.</p>
+          )}
         </div>
       </div>
     </div>

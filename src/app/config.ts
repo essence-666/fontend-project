@@ -1,1 +1,1 @@
-export const URL = "https://frontend-project-alpha-azure.vercel.app";
+export const URL = "http://localhost:3002";
