@@ -1,7 +1,4 @@
-@font-face {
-    font-family: "Roboto";
-    src: local("Roboto"), url(../../../public/Roboto.ttf)
-}
+
 
 .reminderTextBox::-webkit-scrollbar {
     width: 0;
@@ -22,7 +19,6 @@
 /* 
 Все что связано с reminder.tsx
 */
-
 .reminderElementToday{
     width: calc(121px * 1.25);
     height: calc(80px * 1.25);
