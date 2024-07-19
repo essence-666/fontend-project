@@ -3,7 +3,7 @@ import styles from "../styles/search.module.css";
 import Image from "next/image";
 import search from "../../../public/searchImage.png";
 
-const Search = () => {
+export default function Search() {
   return (
     <div className={styles.inputContainer}>
       <div className={styles.searchDiv}>
@@ -16,6 +16,4 @@ const Search = () => {
       </div>
     </div>
   );
-};
-
-export default Search;
+}

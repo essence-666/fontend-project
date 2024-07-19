@@ -1,30 +1,40 @@
+"use client";
+
 import Link from "next/link";
 import styles from "../styles/profile.module.css";
 import Image from "next/image";
 import emailIcon from "../../../public/assets/emailSign.png";
 import locationIcon from "../../../public/assets/locationSign.png";
 import profilePhoto from "../../../public/assets/person.jpeg";
-import romashiPhoto from "../../../public/assets/romashki.png";
 import editPhoto from "../../../public/assets/edit.png";
-import { ReactElement, JSXElementConstructor, ReactNode, ReactPortal, AwaitedReactNode, Key } from "react";
-import { ObjectId } from "mongoose";
+import FlowerContainer from "../components/FlowerContainter";
 
+const URL = "http://localhost:3003";
 
-const getProfile = async () => {
+interface Profile {
+  _id: string;
+  place: string;
+  email: string;
+  description: string;
+  name: string;
+}
+
+const getProfile = async (): Promise<{ profile: Profile[] }> => {
   try {
-    const res = await fetch("http://localhost:3001/api/profileApi", {
-      cache: "no-store"
+    const res = await fetch(`${URL}/api/profileApi`, {
+      cache: "no-store",
     });
     if (!res.ok) {
-      throw new Error('Failed to get profile editions');
+      throw new Error("Failed to get profile editions");
     }
     return res.json();
   } catch (error) {
-    console.log(error);
+    console.error(error);
+    return { profile: [] }; // Return an empty profile array in case of an error
   }
 };
 
-const profilePage = async () => {
+export default async function ProfilePage() {
   const { profile } = await getProfile();
 
   return (
@@ -35,57 +45,46 @@ const profilePage = async () => {
             <Image
               className={styles.image}
               src={profilePhoto}
-              alt={"personInitPage"}
+              alt="personInitPage"
               width={200}
               height={200}
             />
           </div>
-          {profile.map(
-            (
-              prof: {
-                _id: string;
-                place: String;
-                email: String;
-                description: String;
-                name: String;
-              },
-              index: Key | null | undefined,
-            ) => (
-              <div key={index} className={styles.textContainer}>
-                <h1>{prof.name}</h1>
-                <div className={styles.location}>
-                  <Image
-                    className={styles.miniImage}
-                    src={locationIcon}
-                    alt={"personInitPage"}
-                    width={20}
-                    height={15}
-                  />
-                  {prof.place}
-                </div>
-                <div className={styles.email}>
-                  <Image
-                    className={styles.miniImage}
-                    src={emailIcon}
-                    alt={"personInitPage"}
-                    width={20}
-                    height={15}
-                  />
-                  {prof.email}
-                </div>
-                <div className={styles.descriptionText}>{prof.description}</div>
-                <Link className="editButton" href={`/editProfile/${prof._id}`}>
-                  <Image
-                    className={styles.editImage}
-                    src={editPhoto}
-                    alt={"personInitPage"}
-                    width={50}
-                    height={50}
-                  />
-                </Link>
+          {profile.map((prof: Profile, index: number) => (
+            <div key={index} className={styles.textContainer}>
+              <h1>{prof.name}</h1>
+              <div className={styles.location}>
+                <Image
+                  className={styles.miniImage}
+                  src={locationIcon}
+                  alt="location"
+                  width={20}
+                  height={15}
+                />
+                {prof.place}
               </div>
-            )
-          )}
+              <div className={styles.email}>
+                <Image
+                  className={styles.miniImage}
+                  src={emailIcon}
+                  alt="email"
+                  width={20}
+                  height={15}
+                />
+                {prof.email}
+              </div>
+              <div className={styles.descriptionText}>{prof.description}</div>
+              <Link className="editButton" href={`/editProfile/${prof._id}`}>
+                <Image
+                  className={styles.editImage}
+                  src={editPhoto}
+                  alt="edit"
+                  width={50}
+                  height={50}
+                />
+              </Link>
+            </div>
+          ))}
         </div>
         <div className={styles.calendarContainer}>
           <h1 className={styles.calendarHead}>Calendar preview</h1>
@@ -135,120 +134,17 @@ const profilePage = async () => {
         </div>
       </div>
       <div className={styles.containerCollection}>
-        <h1 className={styles.collectionPreview}> Plant collection</h1>
+        <h1 className={styles.collectionPreview}>Plant collection</h1>
         <div className={styles.collection}>
-          <div className={styles.plant}>
-            <div className={styles.plantInfo}>
-              <Image
-                className={styles.plantImage}
-                src={romashiPhoto}
-                alt={"personInitPage"}
-                width={166}
-                height={134}
-              />
-              <p className={styles.plantName}> Romashka </p>
-            </div>
-          </div>
-          <div className={styles.plant}>
-            <div className={styles.plantInfo}>
-              <Image
-                className={styles.plantImage}
-                src={romashiPhoto}
-                alt={"personInitPage"}
-                width={166}
-                height={134}
-              />
-              <p className={styles.plantName}> Romashka </p>
-            </div>
-          </div>
-          <div className={styles.plant}>
-            <div className={styles.plantInfo}>
-              <Image
-                className={styles.plantImage}
-                src={romashiPhoto}
-                alt={"personInitPage"}
-                width={166}
-                height={134}
-              />
-              <p className={styles.plantName}> Romashka </p>
-            </div>
-          </div>
-          <div className={styles.plant}>
-            <div className={styles.plantInfo}>
-              <Image
-                className={styles.plantImage}
-                src={romashiPhoto}
-                alt={"personInitPage"}
-                width={166}
-                height={134}
-              />
-              <p className={styles.plantName}> Romashka </p>
-            </div>
-          </div>
-          <div className={styles.plant}>
-            <div className={styles.plantInfo}>
-              <Image
-                className={styles.plantImage}
-                src={romashiPhoto}
-                alt={"personInitPage"}
-                width={166}
-                height={134}
-              />
-              <p className={styles.plantName}> Romashka </p>
-            </div>
-          </div>
-          <div className={styles.plant}>
-            <div className={styles.plantInfo}>
-              <Image
-                className={styles.plantImage}
-                src={romashiPhoto}
-                alt={"personInitPage"}
-                width={166}
-                height={134}
-              />
-              <p className={styles.plantName}> Romashka </p>
-            </div>
-          </div>
-          <div className={styles.plant}>
-            <div className={styles.plantInfo}>
-              <Image
-                className={styles.plantImage}
-                src={romashiPhoto}
-                alt={"personInitPage"}
-                width={166}
-                height={134}
-              />
-              <p className={styles.plantName}> Romashka </p>
-            </div>
-          </div>
-          <div className={styles.plant}>
-            <div className={styles.plantInfo}>
-              <Image
-                className={styles.plantImage}
-                src={romashiPhoto}
-                alt={"personInitPage"}
-                width={166}
-                height={134}
-              />
-              <p className={styles.plantName}> Romashka </p>
-            </div>
-          </div>
-          <div className={styles.plant}>
-            <div className={styles.plantInfo}>
-              <Image
-                className={styles.plantImage}
-                src={romashiPhoto}
-                alt={"personInitPage"}
-                width={166}
-                height={134}
-              />
-              <p className={styles.plantName}> Romashka </p>
-            </div>
-          </div>
+          <FlowerContainer />
+          <FlowerContainer />
+          <FlowerContainer />
+          <FlowerContainer />
+          <FlowerContainer />
+          <FlowerContainer />
+          <FlowerContainer />
         </div>
       </div>
     </div>
   );
-};
-
-export default profilePage;
+}
