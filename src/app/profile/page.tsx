@@ -23,6 +23,7 @@ interface Flower {
   map(
     arg0: (
       flow: {
+        _id: string;
         name: string;
         scientificName: string;
         location: string;
@@ -32,6 +33,7 @@ interface Flower {
       index: Key | null | undefined,
     ) => import("react").JSX.Element,
   ): ReactNode;
+  _id: string;
   name: string;
   scientificName: string;
   location: string;
@@ -197,6 +199,7 @@ const profilePage = async () => {
           {flowers.map(
             (
               flow: {
+                _id: string;
                 name: string;
                 scientificName: string;
                 location: string;
@@ -205,7 +208,22 @@ const profilePage = async () => {
               },
               index: Key | null | undefined,
             ) => (
-              <div key={index} className={styles.plant}>
+            <Link
+              key={index}
+              href={{
+                pathname: '/flowerElement',
+                query: {
+                  _id: flow._id,
+                  name: flow.name,
+                  scientificName: flow.scientificName,
+                  location: flow.location,
+                  frequencyWatering: flow.frequencyWatering,
+                  wateringChanges: flow.wateringChanges,
+                },
+              }}  
+              passHref
+            >
+              <button className={styles.plant}>
                 <div className={styles.plantInfo}>
                   <Image
                     className={styles.plantImage}
@@ -216,7 +234,8 @@ const profilePage = async () => {
                   />
                   <p className={styles.plantName}> {flow.name} </p>
                 </div>
-              </div>
+              </button>
+            </Link>
             ),
           )}
         </div>

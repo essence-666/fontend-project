@@ -1,44 +1,36 @@
-import Image from "next/image";
+"use client";
+
+import { useSearchParams } from 'next/navigation';
+import Image from 'next/image';
 import styles from "../styles/flowerElement.module.css";
-import romashkiPhoto from "../../../public/assets/romashki.png"
-import editPhoto from "../../../public/assets/editSecond.png"
-import delPhoto from "../../../public/assets/trashCan.png"
+import romashkiPhoto from "../../../public/assets/romashki.png";
+import editPhoto from "../../../public/assets/editSecond.png";
+import delPhoto from "../../../public/assets/trashCan.png";
+import Link from 'next/link';
+import { URL } from "../config";
 
-interface Flower {
-    name: string;
-    scientificName: string;
-    location: string;
-    frequencyWatering: number;
-    wateringChanges: string;
-}
 
-// class FlowerElement implements Flower{
-//     name: string;
-//     scientificName: string;
-//     location: string;
-//     frequencyWatering: number;
-//     wateringChanges: string;
 
-//     constructor (name: string, scientificName: string, location: string, frequencyWatering: number, wateringChanges: string){
-//         this.name = name;
-//         this.scientificName = scientificName;
-//         this.location = location;
-//         this.frequencyWatering = frequencyWatering;
-//         this.wateringChanges = wateringChanges;
-//         this.display()
-//     }
+const FlowerElement = () => {
+    const searchParams = useSearchParams();
+    const id = searchParams.get('_id');
+    const name = searchParams.get('name');
+    const scientificName = searchParams.get('scientificName');
+    const location = searchParams.get('location');
+    const frequencyWatering = searchParams.get('frequencyWatering');
+    const wateringChanges = searchParams.get('wateringChanges');
 
-//     display = () => {
-//         return (
-//             <div className={styles.container}>
-                
-//             </div>
-//         )
-//     }
-// }
+    const removeFlower = async () => {
+        const confirmed = confirm("Are you sure?");
+    
+        if (confirmed) {
+            await fetch(`${URL}/api/flowersApi?id=${id}`, {
+                method: "DELETE",
+            });
+        }
+    }
 
-const flowerElement = (name: string, scientificName: string, location: string, frequencyWatering: number, wateringChanges: string) =>{
-    return(
+    return (
         <div className={styles.container}>
             <div className={styles.containerFlower}>
                 <Image 
@@ -47,43 +39,27 @@ const flowerElement = (name: string, scientificName: string, location: string, f
                     alt={"flowerImage"}
                     width={250}
                     height={250}
-                />
+                />               
                 <div className={styles.textContainer}>
                     <div className={styles.infoElements}>
-                        <div className={styles.infoTitle}>
-                            Name:
-                        </div>
-                        <div className={styles.infocontent}>
-                            {name}
-                        </div>
+                        <div className={styles.infoTitle}>Name:</div>
+                        <div className={styles.infocontent}>{name}</div>
                     </div>
                     <div className={styles.infoElements}>
-                        <div className={styles.infoTitle}>
-                            Scientific name:
-                        </div>
-                        <div className={styles.infocontent}>
-                            {scientificName}
-                        </div>
+                        <div className={styles.infoTitle}>Scientific name:</div>
+                        <div className={styles.infocontent}>{scientificName}</div>
                     </div>
                     <div className={styles.infoElements}>
-                        <div className={styles.infoTitle}>
-                            Location:
-                        </div>
-                        <div className={styles.infocontent}>
-                            {location}
-                        </div>
+                        <div className={styles.infoTitle}>Location:</div>
+                        <div className={styles.infocontent}>{location}</div>
                     </div>
                     <div className={styles.infoElements}>
-                        <div className={styles.infoTitle}>
-                            Watering frequency:
-                        </div>
-                        <div className={styles.infocontent}>
-                            {frequencyWatering}
-                        </div>
+                        <div className={styles.infoTitle}>Watering frequency:</div>
+                        <div className={styles.infocontent}>{frequencyWatering}  {wateringChanges}</div>
                     </div>
                 </div>
                 <div className={styles.buttonContainer}>
-                    <button className={styles.button}>
+                    <Link className={styles.button} href={`/editFlowers/${id}`}>
                         <Image 
                             className={styles.buttonImage}
                             src={editPhoto}
@@ -91,8 +67,8 @@ const flowerElement = (name: string, scientificName: string, location: string, f
                             width={50}
                             height={50}
                         />
-                    </button>
-                    <button className={styles.button}>
+                    </Link>
+                    <Link onClick={removeFlower} className={styles.button} href={"/profile"}>
                         <Image 
                             className={styles.buttonImage}
                             src={delPhoto}
@@ -100,11 +76,11 @@ const flowerElement = (name: string, scientificName: string, location: string, f
                             width={50}
                             height={50}
                         />
-                    </button>
+                    </Link>
                 </div>
             </div>
         </div>
-    )
-}
+    );
+};
 
-export default flowerElement;
+export default FlowerElement;
