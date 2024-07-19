@@ -1,6 +1,6 @@
 "use client";
 
-import styles from "../styles/editProfile.module.css";
+import styles from "../../styles/editProfile.module.css";
 import editPhoto from "../../../public/assets/editSecond.png"
 import photoPhoto from "../../../public/assets/photo.png";
 import emailPhoto from "../../../public/assets/emailSign.png";
@@ -11,7 +11,7 @@ import { useRouter } from "next/navigation";
 
 const getProfileById = async (id: any) => {
   try {
-    const res = await fetch(`http://localhost:3000/api/profileApi?id=${id}`, {
+    const res = await fetch(`http://localhost:3001/api/profileApi?id=${id}`, {
       cache: "no-store"
     });
     if (!res.ok) {

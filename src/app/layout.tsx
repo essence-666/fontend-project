@@ -47,7 +47,7 @@ const Layout = ({ children }: LayoutProps) => {
               About
             </Link>
             <Link
-              href={"/profile/${id}"}
+              href="/profile"
               passHref
               className={`${styles.button3} ${activeButton === "/profile" ? styles.activeButton : ""}`}
               onClick={() => handleButtonClick("/profile")}

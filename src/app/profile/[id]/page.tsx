@@ -19,9 +19,9 @@ import {
 import { ObjectId } from "mongoose";
 import { useRouter } from "next/navigation";
 
-const getProfileById = async (id: string) => {
+const getProfile = async () => {
   try {
-    const res = await fetch(`http://localhost:3000/api/profileApi?id=${id}`, {
+    const res = await fetch("http://localhost:3001/api/profileApi", {
       cache: "no-store",
     });
     if (!res.ok) {
@@ -34,9 +34,7 @@ const getProfileById = async (id: string) => {
 };
 
 const profilePage = async ({ params }: { params: { id: string } }) => {
-  const router = useRouter();
-  const { id } = params;
-  const { profile } = await getProfileById(id);
+  const { profile } = await getProfile();
 
   return (
     <div className={styles.container}>
@@ -54,6 +52,7 @@ const profilePage = async ({ params }: { params: { id: string } }) => {
           {profile.map(
             (
               prof: {
+                _id: string;
                 place: String;
                 email: String;
                 description: String;
@@ -84,18 +83,18 @@ const profilePage = async ({ params }: { params: { id: string } }) => {
                   {prof.email}
                 </div>
                 <div className={styles.descriptionText}>{prof.description}</div>
+                <Link className="editButton" href={`/editProfile/${prof._id}`}>
+                  <Image
+                    className={styles.editImage}
+                    src={editPhoto}
+                    alt={"personInitPage"}
+                    width={50}
+                    height={50}
+                  />
+                </Link>
               </div>
-            ),
+            )
           )}
-          <Link className="editButton" href={"/editProfile"}>
-            <Image
-              className={styles.editImage}
-              src={editPhoto}
-              alt={"personInitPage"}
-              width={50}
-              height={50}
-            />
-          </Link>
         </div>
         <div className={styles.calendarContainer}>
           <h1 className={styles.calendarHead}>Calendar preview</h1>
