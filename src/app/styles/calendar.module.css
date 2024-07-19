@@ -2,6 +2,10 @@
     width: 0;
 }
 
+.reminderTextBoxToday::-webkit-scrollbar {
+    width: 0;
+}
+
 .reminderElement::-webkit-scrollbar {
     width: 0;
 }
@@ -116,6 +120,7 @@ input[type = 'checkbox'].isDone:checked:before{
 */
 
 .dayElementToday{
+    width: calc(121px * 1.25);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -153,6 +158,7 @@ input[type = 'checkbox'].isDone:checked:before{
 }
 
 .dayElement{
+    width: 121px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -169,7 +175,7 @@ input[type = 'checkbox'].isDone:checked:before{
 
 .dateNum{
     margin-left: 0%;
-    padding-top: 25%;
+    padding-top: 28%;
     font-weight: 400;
     font-size: 24px;
     color: #FFFFFF;
@@ -254,5 +260,5 @@ input[type = 'checkbox'].isDone:checked:before{
     padding-top: 12px;
     display: flex;
     vertical-align: top;
-    grid-gap: 60px;
+    gap: 60px;
 }
