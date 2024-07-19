@@ -138,35 +138,29 @@ const profilePage = async () => {
           <div className={styles.calendarPreview}>
             <div className={styles.Day}>
               <div className={styles.dayLeftPart}>
-                <p className={styles.textDay}>Mon</p>
-                <p className={styles.circle}> 8 </p>
+                <p className={styles.textDay}>Sat</p>
+                <p className={styles.circle}> 20 </p>
               </div>
               <div className={styles.dayRightPart}>
                 <div className={styles.plantOne}>
                   <p className={styles.plantName}>Rose</p>
                 </div>
                 <div className={styles.plantOne}>
-                  <p className={styles.plantName}>Cactus</p>
+                  <p className={styles.plantName}>Lilac</p>
                 </div>
                 <div className={styles.plantOne}>
-                  <p className={styles.plantName}>Tomato</p>
+                  <p className={styles.plantName}>Lily</p>
                 </div>
               </div>
             </div>
             <div className={styles.Day}>
               <div className={styles.dayLeftPart}>
-                <p className={styles.textDay}>Mon</p>
-                <p className={styles.circle}> 8 </p>
+                <p className={styles.textDay}>Sun</p>
+                <p className={styles.circle}> 21 </p>
               </div>
               <div className={styles.dayRightPart}>
                 <div className={styles.plantOne}>
-                  <p className={styles.plantName}>Rose</p>
-                </div>
-                <div className={styles.plantOne}>
-                  <p className={styles.plantName}>Cactus</p>
-                </div>
-                <div className={styles.plantOne}>
-                  <p className={styles.plantName}>Tomato</p>
+                  <p className={styles.plantName}>Sunflower</p>
                 </div>
               </div>
             </div>

@@ -7,19 +7,15 @@
     gap: 10px;
 }
 
-.container > * {
-    flex: 1 1 40%;
+.container > *{
+    flex: 1 1;
 }
 
 .containerInfoCalendar {
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+    flex-direction: column;
     gap: 10px;
-}
-
-.containerInfoCalendar > * {
-    flex: 1 1 auto;
+    max-width: 30rem;
 }
 
 .infoContainer {
@@ -30,6 +26,7 @@
     gap: 10px;
     padding: 0 10px;
     background: #DEEAEA;
+    max-height: 10rem;
 }
 
 .infoContainer > * {
@@ -71,8 +68,9 @@
 .editButton {
     display: flex;
     position: absolute;
-    bottom: 10px;
-    right: 10px;
+    bottom: 0;
+    right: 0;
+    width: fit-content;
 }
 
 .miniImage {
@@ -88,6 +86,8 @@
     border: 2px solid black;
     gap: 16px;
     background: #DEEAEA;
+    height: fit-content;
+    padding: 10px;
 }
 
 .calendarHead {
@@ -107,6 +107,7 @@
     box-shadow: 0px 4px 0px 0px #00000040;
     gap: 20px;
     padding: 20px;
+    width: 70%;
 }
 
 .toCalendarButtonContainer { /* добавил чтобы кнопку повыше сделать но не сделал */
@@ -126,15 +127,17 @@
 
 .Day {
     display: flex;
-    justify-content: space-between; /* Размещение элементов по краям */
-    width: 100%; /* Чтобы контейнер занимал всю ширину */
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
 }
 
 .dayLeftPart, .dayRightPart {
     display: flex;
     flex-direction: column;
     align-items: center; /* Центрирование по вертикали */
-    gap: 20px;
+    gap: 8px;
+    justify-content: center;
 }
 
 .textDay {
@@ -150,155 +153,107 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    color: white;
-    font-weight: bold;
-    font-size: 16px;
+    color: white; /* Цвет текста */
+    font-weight: bold; /* Жирный текст */
+    font-size: 16px; /* Размер текста */
 }
+
+/*@media (max-width: 768px) {*/
+/*    .infoContainer {*/
+/*        position: absolute;*/
+/*        display: flex;*/
+/*        align-items: center;*/
+/*        justify-content: flex-start;*/
+/*        width: 300px;*/
+/*        height: 400px;*/
+/*        border: 2px solid black;*/
+/*        border-radius: 40px;*/
+/*        gap: 10px;*/
+/*        background: #DEEAEA;*/
+/*        margin-right: 125%;*/
+/*        margin-top: 6%;*/
+/*    }*/
+/*    .image {*/
+/*        !*position: absolute;*!*/
+/*        margin-bottom: 200px;*/
+/*        margin-left: 50px;*/
+/*        width: 100px;*/
+/*        height: 100px;*/
+/*    }*/
+/*    .textContainer {*/
+/*        position: absolute;*/
+/*        margin-right: 100%;*/
+/*        margin-top: 80%;*/
+/*    }*/
+/*}*/
 
 
 .plantOne {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 177px;
-    height: 40px;
+    min-width: 6rem;
     border-radius: 15px;
     background-color: #AEB8C7;
     box-shadow: 2px 4px 10px #0000004D;
 }
 
-@media (max-width: 768px) {
-    .container {
-        flex-direction: column;
-    }
 
-    .infoContainer {
-        flex-direction: column;
-        display: flex;
-        align-items: center;
-        justify-content: flex-start;
-        width: 300px;
-        height: 400px;
-        border: 2px solid black;
-        border-radius: 40px;
-        gap: 10px;
-        background: #DEEAEA;
-        margin-right: 115%;
-        margin-top: 6%;
-    }
+.containerCollection {
+    display: flex;
+    flex-direction: column;
+    border-radius: 25px;
+    gap: 30px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 30px;
+    padding-right: 30px;
+    background: #DEEAEA;
+    border: 2px solid black;
+    overflow: auto;
+}
 
-    .image {
-        margin-bottom: 200px;
-        margin-left: 30px;
-        width: 100px;
-        height: 100px;
-    }
+.collectionPreview {
+    align-self: center;
+    padding-top: 20px;
+    text-align: center;
+    align-items: center;
+}
 
-    .textContainer {
-        margin-top: -115%;
-        margin-left: 40%;
-        flex-direction: column;
-    }
+.plant {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 174px;
+    height: 209px;
+    border-radius: 33px;
+    background-color: #FFFFFF;
+    box-shadow: 2px 4px 20px #0000004D;
+}
 
-    .calendarContainer {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        width: 200px;
-        height: 200px;
-        margin-right: 115%;
-        margin-top: 20%;
-        border-radius: 25px;
-        border: 2px solid black;
-        gap: 16px;
-        background: #DEEAEA;
-    }
+.collection {
+    display: flex;
+    flex-wrap: wrap; /* Позволяет элементам переноситься на следующую строку */
+    justify-content: flex-start;
+    gap: 20px;
+}
 
-    .calendarHead {
-        margin-bottom: 15%;
-        height: 38px;
-        font-weight: 550;
-        line-height: 37.5px;
-        font-size: 32px;
-    }
+.plantInfo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%; /* Устанавливаем ширину на 100% родительского контейнера */
+    height: 100%;
+}
 
-    .containerCollection {
-        margin-top: 80%;
-        display: flex;
-        flex-direction: column;
-        width: 100px;
-        height: 100px;
-        border-radius: 25px;
-        gap: 30px;
-        background: #DEEAEA;
-        border: 2px solid black;
-        flex: 1;
-    }
+.plantName {
+    font-size: 20px;
+    font-weight: 600;
+}
 
-    .collectionPreview {
-        align-self: center;
-        position: absolute;
-    }
-
-    .collection {
-
-
-        .containerCollection {
-            display: flex;
-            flex-direction: column;
-            border-radius: 25px;
-            gap: 30px;
-            padding-top: 15px;
-            padding-bottom: 15px;
-            padding-left: 30px;
-            padding-right: 30px;
-            background: #DEEAEA;
-            border: 2px solid black;
-            overflow: auto;
-        }
-
-        .collectionPreview {
-            align-self: center;
-            padding-top: 20px;
-        }
-
-        .plant {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            width: 174px;
-            height: 209px;
-            border-radius: 33px;
-            background-color: #FFFFFF;
-            box-shadow: 2px 4px 20px #0000004D;
-        }
-
-        .collection {
-            display: flex;
-            flex-wrap: wrap; /* Позволяет элементам переноситься на следующую строку */
-            justify-content: space-between; /* Разделение элементов по всей ширине */
-            gap: 20px;
-        }
-
-        .plantInfo {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-            width: 100%; /* Устанавливаем ширину на 100% родительского контейнера */
-            height: 100%;
-        }
-
-        .plantName {
-            font-size: 20px;
-            font-weight: 800;
-        }
-
-        .plantImage {
-            max-width: 100%; /* Устанавливаем максимальную ширину изображения */
-            max-height: 100%;
-        }
-    }
+.plantImage {
+    max-width: 100%; /* Устанавливаем максимальную ширину изображения */
+    max-height: 100%;
 }
