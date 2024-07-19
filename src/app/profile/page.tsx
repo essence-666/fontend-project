@@ -49,7 +49,7 @@ const getProfile = async () => {
     }
     return res.json();
   } catch (error) {
-    console.log(error);
+    return {};
   }
 };
 
@@ -64,7 +64,6 @@ const getFlowers = async (): Promise<Flower[]> => {
     const data: { [key: string]: Flower } = await res.json();
     return Object.values(data);
   } catch (error) {
-    console.error("An error occurred:", error);
     return [];
   }
 };
@@ -73,7 +72,9 @@ const profilePage = async () => {
   const { profile } = await getProfile();
   const flowersFirst = await getFlowers();
   const flowers = flowersFirst[0];
-
+  if (!profile) {
+    return <p>No profile data available</p>;
+  }
   return (
     <div className={styles.container}>
       <div className={styles.containerInfoCalendar}>
