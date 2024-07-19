@@ -14,3 +14,10 @@ export async function GET() {
     const flower = await Flower.find();
     return NextResponse.json({flower})
 }
+
+export async function DELETE(request: NextRequest) {
+    const id = request.nextUrl.searchParams.get("id");
+    await connectFlowersDB();
+    await Flower.findByIdAndDelete(id);
+    return NextResponse.json({message: "Flower deleted"}, {status: 200})
+}
