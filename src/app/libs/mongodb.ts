@@ -8,7 +8,7 @@ const connectProfileDB = async () => {
     }
     try {
         await mongoose.connect(mongoURI);
-        console.log("Connected to profiledatabase");
+        console.log("Connected to profile database");
     } catch (error) {
         console.log(error);
     }

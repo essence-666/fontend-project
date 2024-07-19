@@ -33,7 +33,9 @@ const getFlowers = async () => {
     if (!res.ok) {
       throw new Error('Failed to get flowers');
     }
-    return res.json();
+    const data = await res.json();
+    console.log("Flowers data:", data);
+    return data;
   } catch (Error) {
     console.log(error);
   }
