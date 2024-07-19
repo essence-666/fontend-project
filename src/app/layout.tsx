@@ -1,24 +1,17 @@
 // src/app/layout.tsx
 "use client";
 
-import React, { ReactNode, useState } from "react";
+import React, { ReactNode } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import "./globals.css";
-import styles from "./styles/layout.module.css";
 import "@uploadthing/react/styles.css";
-
+import Header from "./components/Header"
 type LayoutProps = {
   children: ReactNode;
 };
 
 const Layout = ({ children }: LayoutProps) => {
-  const [menuOpen, setMenuOpen] = useState(false);
-  const currentPath = usePathname();
-
-  const toggleMenu = () => {
-    setMenuOpen(!menuOpen);
-  };
 
   return (
     <html>
@@ -26,58 +19,7 @@ const Layout = ({ children }: LayoutProps) => {
         <title>PlantCARE</title>
       </head>
       <body>
-        <header>
-          <nav className={styles.nav}>
-            <p id="title">PlantCARE</p>
-            <button className={styles.menuButton} onClick={toggleMenu}>
-              ☰
-            </button>
-            <div
-              className={`${styles.navLinks} ${menuOpen ? styles.showMenu : ""}`}
-            >
-              <Link href="/" passHref>
-                <button
-                  className={`${styles.button3} ${currentPath === "/" ? styles.activeButton : ""}`}
-                  onClick={toggleMenu}
-                >
-                  Home Page
-                </button>
-              </Link>
-              <Link href="/about" passHref>
-                <button
-                  className={`${styles.button3} ${currentPath === "/about" ? styles.activeButton : ""}`}
-                  onClick={toggleMenu}
-                >
-                  About
-                </button>
-              </Link>
-              <Link href="/profile" passHref>
-                <button
-                  className={`${styles.button3} ${currentPath === "/profile" ? styles.activeButton : ""}`}
-                  onClick={toggleMenu}
-                >
-                  Profile
-                </button>
-              </Link>
-              <Link href="/search" passHref>
-                <button
-                  className={`${styles.button3} ${currentPath === "/search" ? styles.activeButton : ""}`}
-                  onClick={toggleMenu}
-                >
-                  Search
-                </button>
-              </Link>
-              <Link href="/calendar" passHref>
-                <button
-                  className={`${styles.button3} ${currentPath === "/calendar" ? styles.activeButton : ""}`}
-                  onClick={toggleMenu}
-                >
-                  Calendar
-                </button>
-              </Link>
-            </div>
-          </nav>
-        </header>
+        <Header/>
         <main>{children}</main>
         <footer></footer>
       </body>
