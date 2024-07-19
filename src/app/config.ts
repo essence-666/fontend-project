@@ -1,2 +1,1 @@
-export const URL =
-  "https://frontend-project-git-buildfix-kleontas-projects.vercel.app";
+export const URL = "https://frontend-project-alpha-azure.vercel.app";
