@@ -12,31 +12,6 @@ interface Flower {
     wateringChanges: string;
 }
 
-// class FlowerElement implements Flower{
-//     name: string;
-//     scientificName: string;
-//     location: string;
-//     frequencyWatering: number;
-//     wateringChanges: string;
-
-//     constructor (name: string, scientificName: string, location: string, frequencyWatering: number, wateringChanges: string){
-//         this.name = name;
-//         this.scientificName = scientificName;
-//         this.location = location;
-//         this.frequencyWatering = frequencyWatering;
-//         this.wateringChanges = wateringChanges;
-//         this.display()
-//     }
-
-//     display = () => {
-//         return (
-//             <div className={styles.container}>
-                
-//             </div>
-//         )
-//     }
-// }
-
 const flowerElement = (name: string, scientificName: string, location: string, frequencyWatering: number, wateringChanges: string) =>{
     return(
         <div className={styles.container}>

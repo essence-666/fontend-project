@@ -5,13 +5,23 @@ import rightButton from "../../../public/keyboard_arrow_down.png";
 import Image from "next/image"
 
 const calendarPage = () => {
-  const exampleDay1 = dayElement("28", "Tue", true)
-  const exampleDay2 = dayElement("29", "Wed", false)
-  const exampleDay3 = dayElement("30", "Thu", false)
-  const exampleDay4 = dayElement("31", "Fri", false)
-  const exampleDay5 = dayElement("1", "Sat", false)
-  const exampleDay6 = dayElement("2", "Sun", false)
-  const exampleDay7 = dayElement("3", "Mon", false)
+  const exampleDay1 = new dayElement("20", "Sat", true)
+  const exampleDay2 = new dayElement("21", "Sun", false)
+  const exampleDay3 = new dayElement("22", "Mon", false)
+  const exampleDay4 = new dayElement("23", "Tue", false)
+  const exampleDay5 = new dayElement("24", "Wed", false)
+  const exampleDay6 = new dayElement("25", "Thu", false)
+  const exampleDay7 = new dayElement("26", "Fri", false)
+  
+  exampleDay1.addReminder("Rose")
+  exampleDay1.addReminder("Lilac")
+  exampleDay1.addReminder("Lily")
+  exampleDay2.addReminder("Sunflower")
+  exampleDay4.addReminder("Potato")
+  exampleDay4.addReminder("Tomato")
+  exampleDay5.addReminder("Strawberry")
+  exampleDay7.addReminder("Pansy")
+  exampleDay7.addReminder("Lilac")
   return (
     <div className="page">
       <h1 className={styles.calendarName}>Watering calendar</h1>
@@ -31,16 +41,16 @@ const calendarPage = () => {
               alt=">"
             />
           </button>
-          <p className={styles.month}>July/August 2024</p>
+          <p className={styles.month}>July 2024</p>
         </div>
         <div className={styles.calendarDates}>
-          <div className="dates" id="today">{exampleDay1}</div>
-          <div className="dates">{exampleDay2}</div>
-          <div className="dates">{exampleDay3}</div>
-          <div className="dates">{exampleDay4}</div>
-          <div className="dates">{exampleDay5}</div>
-          <div className="dates">{exampleDay6}</div>
-          <div className="dates">{exampleDay7}</div>
+          <div className="dates" id="today">{exampleDay1.update()}</div>
+          <div className="dates">{exampleDay2.update()}</div>
+          <div className="dates">{exampleDay3.update()}</div>
+          <div className="dates">{exampleDay4.update()}</div>
+          <div className="dates">{exampleDay5.update()}</div>
+          <div className="dates">{exampleDay6.update()}</div>
+          <div className="dates">{exampleDay7.update()}</div>
         </div>
       </div>
     </div>
