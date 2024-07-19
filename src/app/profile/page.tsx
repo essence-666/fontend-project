@@ -7,19 +7,18 @@ import profilePhoto from "../../../public/assets/person.jpeg";
 import romashiPhoto from "../../../public/assets/romashki.png";
 import editPhoto from "../../../public/assets/edit.png";
 import addPhoto from "../../../public/assets/add.png";
-import { ReactElement, JSXElementConstructor, ReactNode, ReactPortal, AwaitedReactNode, Key } from "react";
-import { error } from "console";
-import Flower from "../models/flower";
+import { Key } from "react";
+import { URL } from "../config";
 
+interface Profile {
+  _id: string;
+  place: string;
+  email: string;
+  description: string;
+  name: string;
+}
 
 interface Flower {
-  map(arg0: (flow: {
-    name: string;
-    scientificName: string;
-    location: string;
-    frequencyWatering: number;
-    wateringChanges: string;
-  }, index: Key | null | undefined) => import("react").JSX.Element): ReactNode;
   name: string;
   scientificName: string;
   location: string;
@@ -27,41 +26,39 @@ interface Flower {
   wateringChanges: string;
 }
 
-const getProfile = async () => {
+const getProfile = async (): Promise<Profile[]> => {
   try {
-    const res = await fetch("http://localhost:3000/api/profileApi", {
-      cache: "no-store"
+    const res = await fetch(`${URL}/api/profileApi`, {
+      cache: "no-store",
     });
     if (!res.ok) {
-      throw new Error('Failed to get profile editions');
+      throw new Error("Failed to get profile editions");
     }
     return res.json();
   } catch (error) {
-    console.log(error);
+    console.error(error);
+    return []; // Return an empty array in case of an error
   }
 };
 
 const getFlowers = async (): Promise<Flower[]> => {
   try {
-    const res = await fetch("http://localhost:3000/api/flowersApi", {
-      cache: "no-store"
+    const res = await fetch(`${URL}/api/flowersApi`, {
+      cache: "no-store",
     });
     if (!res.ok) {
-      throw new Error('Failed to get flowers');
+      throw new Error("Failed to get flowers");
     }
-    const data: { [key: string]: Flower } = await res.json();
-    return Object.values(data);
+    return res.json();
   } catch (error) {
-    console.error('An error occurred:', error);
-    return [];
+    console.error(error);
+    return []; // Return an empty array in case of an error
   }
 };
 
-
-const profilePage = async () => {
-  const { profile } = await getProfile();
-  const  flowersFirst  = await getFlowers();
-  const flowers = flowersFirst[0];
+const ProfilePage = async () => {
+  const profile = await getProfile();
+  const flowers = await getFlowers();
 
   return (
     <div className={styles.container}>
@@ -76,52 +73,41 @@ const profilePage = async () => {
               height={200}
             />
           </div>
-          {profile.map(
-            (
-              prof: {
-                _id: string;
-                place: String;
-                email: String;
-                description: String;
-                name: String;
-              },
-              index: Key | null | undefined,
-            ) => (
-              <div key={index} className={styles.textContainer}>
-                <h1>{prof.name}</h1>
-                <div className={styles.location}>
-                  <Image
-                    className={styles.miniImage}
-                    src={locationIcon}
-                    alt={"personInitPage"}
-                    width={20}
-                    height={15}
-                  />
-                  {prof.place}
-                </div>
-                <div className={styles.email}>
-                  <Image
-                    className={styles.miniImage}
-                    src={emailIcon}
-                    alt={"personInitPage"}
-                    width={20}
-                    height={15}
-                  />
-                  {prof.email}
-                </div>
-                <div className={styles.descriptionText}>{prof.description}</div>
-                <Link className="editButton" href={`/editProfile/${prof._id}`}>
-                  <Image
-                    className={styles.editImage}
-                    src={editPhoto}
-                    alt={"personInitPage"}
-                    width={50}
-                    height={50}
-                  />
-                </Link>
+          {profile.map((prof, index) => (
+            <div key={index} className={styles.textContainer}>
+              <h1>{prof.name}</h1>
+              <div className={styles.location}>
+                <Image
+                  className={styles.miniImage}
+                  src={locationIcon}
+                  alt={"personInitPage"}
+                  width={20}
+                  height={15}
+                />
+                {prof.place}
               </div>
-            )
-          )}
+              <div className={styles.email}>
+                <Image
+                  className={styles.miniImage}
+                  src={emailIcon}
+                  alt={"personInitPage"}
+                  width={20}
+                  height={15}
+                />
+                {prof.email}
+              </div>
+              <div className={styles.descriptionText}>{prof.description}</div>
+              <Link className="editButton" href={`/editProfile/${prof._id}`}>
+                <Image
+                  className={styles.editImage}
+                  src={editPhoto}
+                  alt={"personInitPage"}
+                  width={50}
+                  height={50}
+                />
+              </Link>
+            </div>
+          ))}
         </div>
         <div className={styles.calendarContainer}>
           <h1 className={styles.calendarHead}>Calendar preview</h1>
@@ -171,7 +157,7 @@ const profilePage = async () => {
         </div>
       </div>
       <div className={styles.containerCollection}>
-        <h1 className={styles.collectionPreview}> 
+        <h1 className={styles.collectionPreview}>
           Plant collection
           <Link className="editButton" href={`/editFlowers/`}>
             <Image
@@ -184,36 +170,24 @@ const profilePage = async () => {
           </Link>
         </h1>
         <div className={styles.collection}>
-        {
-          flowers.map(
-            (
-              flow: {
-                name: string;
-                scientificName: string;
-                location: string;
-                frequencyWatering: number;
-                wateringChanges: string;
-              },
-              index: Key | null | undefined,
-            ) => (
-          <div key={index} className={styles.plant}>
-            <div className={styles.plantInfo}>
-              <Image
-                className={styles.plantImage}
-                src={romashiPhoto}
-                alt={"personInitPage"}
-                width={166}
-                height={134}
-              />
-              <p className={styles.plantName}> {flow.name} </p>
+          {flowers.map((flow, index) => (
+            <div key={index} className={styles.plant}>
+              <div className={styles.plantInfo}>
+                <Image
+                  className={styles.plantImage}
+                  src={romashiPhoto}
+                  alt={"personInitPage"}
+                  width={166}
+                  height={134}
+                />
+                <p className={styles.plantName}>{flow.name}</p>
+              </div>
             </div>
-          </div>
-          )
-        )}
+          ))}
         </div>
-      </div>  
+      </div>
     </div>
   );
 };
 
-export default profilePage;
+export default ProfilePage;
