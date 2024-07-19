@@ -11,7 +11,7 @@ import { useRouter } from "next/navigation";
 
 const getProfileById = async (id: string) => {
   try {
-    const res = await fetch(`http://localhost:3001/api/profileApi/${id}`, {
+    const res = await fetch(`http://localhost:3000/api/profileApi/${id}`, {
       cache: "no-store"
     });
     if (!res.ok) {
@@ -50,7 +50,7 @@ const EditProfilePage = ({ params }: { params: { id: string } }) => {
     e.preventDefault();
 
     try {
-      const res = await fetch(`http://localhost:3001/api/profileApi/${id}`, {
+      const res = await fetch(`http://localhost:3000/api/profileApi/${id}`, {
         method: "PUT",
         headers: {
           "Content-type": "application/json"
