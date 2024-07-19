@@ -7,26 +7,19 @@ import profilePhoto from "../../../public/assets/person.jpeg";
 import romashiPhoto from "../../../public/assets/romashki.png";
 import editPhoto from "../../../public/assets/edit.png";
 import addPhoto from "../../../public/assets/add.png";
-import {
-  ReactElement,
-  JSXElementConstructor,
-  ReactNode,
-  ReactPortal,
-  AwaitedReactNode,
-  Key,
-} from "react";
+import { ReactElement, JSXElementConstructor, ReactNode, ReactPortal, AwaitedReactNode, Key } from "react";
 import { error } from "console";
-import { URL } from "../config";
+import Flower from "../models/flower";
 
-interface Profile {
-  _id: string;
-  place: string;
-  email: string;
-  description: string;
-  name: string;
-}
 
-interface Flowers {
+interface Flower {
+  map(arg0: (flow: {
+    name: string;
+    scientificName: string;
+    location: string;
+    frequencyWatering: number;
+    wateringChanges: string;
+  }, index: Key | null | undefined) => import("react").JSX.Element): ReactNode;
   name: string;
   scientificName: string;
   location: string;
@@ -34,39 +27,41 @@ interface Flowers {
   wateringChanges: string;
 }
 
-const getProfile = async (): Promise<{ profile: Profile[] }> => {
+const getProfile = async () => {
   try {
-    const res = await fetch(`${URL}/api/profileApi`, {
-      cache: "no-store",
+    const res = await fetch("http://localhost:3000/api/profileApi", {
+      cache: "no-store"
     });
     if (!res.ok) {
-      throw new Error("Failed to get profile editions");
+      throw new Error('Failed to get profile editions');
     }
     return res.json();
   } catch (error) {
-    console.error(error);
-    return { profile: [] }; // Return an empty profile array in case of an error
+    console.log(error);
   }
 };
 
-const getFlowers = async (): Promise<{ flowers: Flowers[] }> => {
+const getFlowers = async (): Promise<Flower[]> => {
   try {
-    const res = await fetch(`${URL}/api/flowersApi`, {
-      cache: "no-store",
+    const res = await fetch("http://localhost:3000/api/flowersApi", {
+      cache: "no-store"
     });
     if (!res.ok) {
-      throw new Error("Failed to get flowers");
+      throw new Error('Failed to get flowers');
     }
-    return res.json();
-  } catch (Error) {
-    console.log(error);
-    return { flowers: [] };
+    const data: { [key: string]: Flower } = await res.json();
+    return Object.values(data);
+  } catch (error) {
+    console.error('An error occurred:', error);
+    return [];
   }
 };
+
 
 const profilePage = async () => {
   const { profile } = await getProfile();
-  const { flowers } = await getFlowers();
+  const  flowersFirst  = await getFlowers();
+  const flowers = flowersFirst[0];
 
   return (
     <div className={styles.container}>
@@ -125,7 +120,7 @@ const profilePage = async () => {
                   />
                 </Link>
               </div>
-            ),
+            )
           )}
         </div>
         <div className={styles.calendarContainer}>
@@ -176,7 +171,7 @@ const profilePage = async () => {
         </div>
       </div>
       <div className={styles.containerCollection}>
-        <h1 className={styles.collectionPreview}>
+        <h1 className={styles.collectionPreview}> 
           Plant collection
           <Link className="editButton" href={`/editFlowers/`}>
             <Image
@@ -189,41 +184,34 @@ const profilePage = async () => {
           </Link>
         </h1>
         <div className={styles.collection}>
-          {flowers && flowers.length > 0 ? (
-            flowers.map(
-              (
-                flow: {
-                  name: string;
-                  scientificName: string;
-                  location: string;
-                  frequencyWatering: number;
-                  wateringChanges: string;
-                },
-                index: Key | null | undefined,
-              ) => (
-                <div key={index} className={styles.plant}>
-                  <div className={styles.plantInfo}>
-                    <Image
-                      className={styles.plantImage}
-                      src={romashiPhoto}
-                      alt={"personInitPage"}
-                      width={166}
-                      height={134}
-                    />
-                    <p className={styles.plantName}>
-                      {" "}
-                      {flow.name}, {flow.scientificName}, {flow.location},{" "}
-                      {flow.frequencyWatering}, {flow.wateringChanges}{" "}
-                    </p>
-                  </div>
-                </div>
-              ),
-            )
-          ) : (
-            <p>No flowers available.</p>
-          )}
+        {
+          flowers.map(
+            (
+              flow: {
+                name: string;
+                scientificName: string;
+                location: string;
+                frequencyWatering: number;
+                wateringChanges: string;
+              },
+              index: Key | null | undefined,
+            ) => (
+          <div key={index} className={styles.plant}>
+            <div className={styles.plantInfo}>
+              <Image
+                className={styles.plantImage}
+                src={romashiPhoto}
+                alt={"personInitPage"}
+                width={166}
+                height={134}
+              />
+              <p className={styles.plantName}> {flow.name} </p>
+            </div>
+          </div>
+          )
+        )}
         </div>
-      </div>
+      </div>  
     </div>
   );
 };
