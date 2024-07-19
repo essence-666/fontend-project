@@ -44,9 +44,9 @@ header {
 
 @media (max-width: 768px) {
     header {
-        height: auto; /* Allow header to grow in height if needed */
-        flex-direction: column; /* Stack header contents vertically */
-        align-items: flex-start; /* Align items to the start */
+        height: auto;
+        flex-direction: column;
+        align-items: flex-start; 
     }
 
     h1 {

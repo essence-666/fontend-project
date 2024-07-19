@@ -6,26 +6,67 @@ import locationIcon from "../../../public/assets/locationSign.png";
 import profilePhoto from "../../../public/assets/person.jpeg";
 import romashiPhoto from "../../../public/assets/romashki.png";
 import editPhoto from "../../../public/assets/edit.png";
-import { ReactElement, JSXElementConstructor, ReactNode, ReactPortal, AwaitedReactNode, Key } from "react";
-import { ObjectId } from "mongoose";
+import addPhoto from "../../../public/assets/add.png";
+import {
+  ReactElement,
+  JSXElementConstructor,
+  ReactNode,
+  ReactPortal,
+  AwaitedReactNode,
+  Key,
+} from "react";
+import { error } from "console";
+import { URL } from "../config";
 
+interface Profile {
+  _id: string;
+  place: string;
+  email: string;
+  description: string;
+  name: string;
+}
 
-const getProfile = async () => {
+interface Flowers {
+  name: string;
+  scientificName: string;
+  location: string;
+  frequencyWatering: number;
+  wateringChanges: string;
+}
+
+const getProfile = async (): Promise<{ profile: Profile[] }> => {
   try {
-    const res = await fetch("http://localhost:3001/api/profileApi", {
-      cache: "no-store"
+    const res = await fetch(`${URL}/api/profileApi`, {
+      cache: "no-store",
     });
     if (!res.ok) {
-      throw new Error('Failed to get profile editions');
+      throw new Error("Failed to get profile editions");
     }
     return res.json();
   } catch (error) {
+    console.error(error);
+    return { profile: [] }; // Return an empty profile array in case of an error
+  }
+};
+
+const getFlowers = async (): Promise<{ flowers: Flowers[] }> => {
+  try {
+    const res = await fetch(`${URL}/api/flowersApi`, {
+      cache: "no-store",
+    });
+    if (!res.ok) {
+      throw new Error("Failed to get flowers");
+    }
+    return res.json();
+  } catch (Error) {
     console.log(error);
+    return { flowers: [] };
   }
 };
 
 const profilePage = async () => {
   const { profile } = await getProfile();
+  const { flowers } = await getFlowers();
 
   return (
     <div className={styles.container}>
@@ -84,7 +125,7 @@ const profilePage = async () => {
                   />
                 </Link>
               </div>
-            )
+            ),
           )}
         </div>
         <div className={styles.calendarContainer}>
@@ -135,116 +176,52 @@ const profilePage = async () => {
         </div>
       </div>
       <div className={styles.containerCollection}>
-        <h1 className={styles.collectionPreview}> Plant collection</h1>
+        <h1 className={styles.collectionPreview}>
+          Plant collection
+          <Link className="editButton" href={`/editFlowers/`}>
+            <Image
+              className={styles.editImage}
+              src={addPhoto}
+              alt={"personInitPage"}
+              width={50}
+              height={50}
+            />
+          </Link>
+        </h1>
         <div className={styles.collection}>
-          <div className={styles.plant}>
-            <div className={styles.plantInfo}>
-              <Image
-                className={styles.plantImage}
-                src={romashiPhoto}
-                alt={"personInitPage"}
-                width={166}
-                height={134}
-              />
-              <p className={styles.plantName}> Romashka </p>
-            </div>
-          </div>
-          <div className={styles.plant}>
-            <div className={styles.plantInfo}>
-              <Image
-                className={styles.plantImage}
-                src={romashiPhoto}
-                alt={"personInitPage"}
-                width={166}
-                height={134}
-              />
-              <p className={styles.plantName}> Romashka </p>
-            </div>
-          </div>
-          <div className={styles.plant}>
-            <div className={styles.plantInfo}>
-              <Image
-                className={styles.plantImage}
-                src={romashiPhoto}
-                alt={"personInitPage"}
-                width={166}
-                height={134}
-              />
-              <p className={styles.plantName}> Romashka </p>
-            </div>
-          </div>
-          <div className={styles.plant}>
-            <div className={styles.plantInfo}>
-              <Image
-                className={styles.plantImage}
-                src={romashiPhoto}
-                alt={"personInitPage"}
-                width={166}
-                height={134}
-              />
-              <p className={styles.plantName}> Romashka </p>
-            </div>
-          </div>
-          <div className={styles.plant}>
-            <div className={styles.plantInfo}>
-              <Image
-                className={styles.plantImage}
-                src={romashiPhoto}
-                alt={"personInitPage"}
-                width={166}
-                height={134}
-              />
-              <p className={styles.plantName}> Romashka </p>
-            </div>
-          </div>
-          <div className={styles.plant}>
-            <div className={styles.plantInfo}>
-              <Image
-                className={styles.plantImage}
-                src={romashiPhoto}
-                alt={"personInitPage"}
-                width={166}
-                height={134}
-              />
-              <p className={styles.plantName}> Romashka </p>
-            </div>
-          </div>
-          <div className={styles.plant}>
-            <div className={styles.plantInfo}>
-              <Image
-                className={styles.plantImage}
-                src={romashiPhoto}
-                alt={"personInitPage"}
-                width={166}
-                height={134}
-              />
-              <p className={styles.plantName}> Romashka </p>
-            </div>
-          </div>
-          <div className={styles.plant}>
-            <div className={styles.plantInfo}>
-              <Image
-                className={styles.plantImage}
-                src={romashiPhoto}
-                alt={"personInitPage"}
-                width={166}
-                height={134}
-              />
-              <p className={styles.plantName}> Romashka </p>
-            </div>
-          </div>
-          <div className={styles.plant}>
-            <div className={styles.plantInfo}>
-              <Image
-                className={styles.plantImage}
-                src={romashiPhoto}
-                alt={"personInitPage"}
-                width={166}
-                height={134}
-              />
-              <p className={styles.plantName}> Romashka </p>
-            </div>
-          </div>
+          {flowers && flowers.length > 0 ? (
+            flowers.map(
+              (
+                flow: {
+                  name: string;
+                  scientificName: string;
+                  location: string;
+                  frequencyWatering: number;
+                  wateringChanges: string;
+                },
+                index: Key | null | undefined,
+              ) => (
+                <div key={index} className={styles.plant}>
+                  <div className={styles.plantInfo}>
+                    <Image
+                      className={styles.plantImage}
+                      src={romashiPhoto}
+                      alt={"personInitPage"}
+                      width={166}
+                      height={134}
+                    />
+                    <p className={styles.plantName}>
+                      {" "}
+                      {flow.name}, {flow.scientificName}, {flow.location},{" "}
+                      {flow.frequencyWatering}, {flow.wateringChanges}{" "}
+                    </p>
+                  </div>
+                </div>
+              ),
+            )
+          ) : (
+            <p>No flowers available.</p>
+          )}
         </div>
       </div>
     </div>

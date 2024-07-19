@@ -9,7 +9,7 @@ import Image from "next/image";
 const editFlowerPage = () => {
     return (
         <div className={styles.container}>
-            <p className={styles.path}> Home {">"} Edit flower </p>
+            <p className={styles.path}> Home {">"} Add flower </p>
             <div className={styles.editContainer}>
                 <div className={styles.nameAndPhoto}>
                     <div className={styles.name}>

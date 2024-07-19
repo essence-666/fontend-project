@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const connectMongoDB = async () => {
+const connectProfileDB = async () => {
     const mongoURI = process.env.MONGODB_URI;
 
     if (!mongoURI) {
@@ -8,10 +8,10 @@ const connectMongoDB = async () => {
     }
     try {
         await mongoose.connect(mongoURI);
-        console.log("Connected to database");
+        console.log("Connected to profiledatabase");
     } catch (error) {
         console.log(error);
     }
 };
 
-export default connectMongoDB;
+export default connectProfileDB;
