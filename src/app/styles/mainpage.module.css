@@ -11,3 +11,9 @@
   margin-top: 15%;
   font-size: 30px;
 }
+
+@media (max-width: 1000px) {
+  .textContainer{
+    margin-top: 25%
+  }
+}
