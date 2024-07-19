@@ -119,8 +119,14 @@
     }
 
     .button3 {
-        width: 80%;
+        width: 100%;
         margin: 0.5rem auto;
         color: black;
+        margin-left: 10%;
+    }
+    .button3:active {
+        background-color: rgb(0,105,111);
+        box-shadow: rgba(20, 70, 32, 0.2) 0 1px 0 inset;
+        border-radius: 30%;
     }
 }
