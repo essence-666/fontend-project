@@ -198,7 +198,6 @@ input[type = 'checkbox'].isDone:checked:before{
 .calendarName{
     margin-left: 40px;
     margin-top: 100px;
-    font-family: "Roboto";
     font-weight: 700;
     font-size: 36px;
     color: black;
@@ -230,7 +229,6 @@ input[type = 'checkbox'].isDone:checked:before{
 .month{
     margin: 0px;
     padding-top: 25px;
-    font-family: "Roboto";
     font-weight: 400;
     font-size: 32px;
     color: black;
