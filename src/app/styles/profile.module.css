@@ -7,7 +7,7 @@
     gap: 10px;
 }
 
-.container > *{
+.container > * {
     flex: 1 1 40%;
 }
 
@@ -150,39 +150,10 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    color: white; /* Цвет текста */
-    font-weight: bold; /* Жирный текст */
-    font-size: 16px; /* Размер текста */
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
 }
-
-/*@media (max-width: 768px) {*/
-/*    .infoContainer {*/
-/*        position: absolute;*/
-/*        display: flex;*/
-/*        align-items: center;*/
-/*        justify-content: flex-start;*/
-/*        width: 300px;*/
-/*        height: 400px;*/
-/*        border: 2px solid black;*/
-/*        border-radius: 40px;*/
-/*        gap: 10px;*/
-/*        background: #DEEAEA;*/
-/*        margin-right: 125%;*/
-/*        margin-top: 6%;*/
-/*    }*/
-/*    .image {*/
-/*        !*position: absolute;*!*/
-/*        margin-bottom: 200px;*/
-/*        margin-left: 50px;*/
-/*        width: 100px;*/
-/*        height: 100px;*/
-/*    }*/
-/*    .textContainer {*/
-/*        position: absolute;*/
-/*        margin-right: 100%;*/
-/*        margin-top: 80%;*/
-/*    }*/
-/*}*/
 
 
 .plantOne {
@@ -196,60 +167,138 @@
     box-shadow: 2px 4px 10px #0000004D;
 }
 
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
 
-.containerCollection {
-    display: flex;
-    flex-direction: column;
-    border-radius: 25px;
-    gap: 30px;
-    padding-top: 15px;
-    padding-bottom: 15px;
-    padding-left: 30px;
-    padding-right: 30px;
-    background: #DEEAEA;
-    border: 2px solid black;
-    overflow: auto;
-}
+    .infoContainer {
+        flex-direction: column;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        width: 300px;
+        height: 400px;
+        border: 2px solid black;
+        border-radius: 40px;
+        gap: 10px;
+        background: #DEEAEA;
+        margin-right: 115%;
+        margin-top: 6%;
+    }
 
-.collectionPreview {
-    align-self: center;
-    padding-top: 20px;
-}
+    .image {
+        margin-bottom: 200px;
+        margin-left: 30px;
+        width: 100px;
+        height: 100px;
+    }
 
-.plant {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 174px;
-    height: 209px;
-    border-radius: 33px;
-    background-color: #FFFFFF;
-    box-shadow: 2px 4px 20px #0000004D;
-}
+    .textContainer {
+        margin-top: -115%;
+        margin-left: 40%;
+        flex-direction: column;
+    }
 
-.collection {
-    display: flex;
-    flex-wrap: wrap; /* Позволяет элементам переноситься на следующую строку */
-    justify-content: space-between; /* Разделение элементов по всей ширине */
-    gap: 20px;
-}
+    .calendarContainer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 200px;
+        height: 200px;
+        margin-right: 115%;
+        margin-top: 20%;
+        border-radius: 25px;
+        border: 2px solid black;
+        gap: 16px;
+        background: #DEEAEA;
+    }
 
-.plantInfo {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    width: 100%; /* Устанавливаем ширину на 100% родительского контейнера */
-    height: 100%;
-}
+    .calendarHead {
+        margin-bottom: 15%;
+        height: 38px;
+        font-weight: 550;
+        line-height: 37.5px;
+        font-size: 32px;
+    }
 
-.plantName {
-    font-size: 20px;
-    font-weight: 800;
-}
+    .containerCollection {
+        margin-top: 80%;
+        display: flex;
+        flex-direction: column;
+        width: 100px;
+        height: 100px;
+        border-radius: 25px;
+        gap: 30px;
+        background: #DEEAEA;
+        border: 2px solid black;
+        flex: 1;
+    }
 
-.plantImage {
-    max-width: 100%; /* Устанавливаем максимальную ширину изображения */
-    max-height: 100%;
+    .collectionPreview {
+        align-self: center;
+        position: absolute;
+    }
+
+    .collection {
+
+
+        .containerCollection {
+            display: flex;
+            flex-direction: column;
+            border-radius: 25px;
+            gap: 30px;
+            padding-top: 15px;
+            padding-bottom: 15px;
+            padding-left: 30px;
+            padding-right: 30px;
+            background: #DEEAEA;
+            border: 2px solid black;
+            overflow: auto;
+        }
+
+        .collectionPreview {
+            align-self: center;
+            padding-top: 20px;
+        }
+
+        .plant {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 174px;
+            height: 209px;
+            border-radius: 33px;
+            background-color: #FFFFFF;
+            box-shadow: 2px 4px 20px #0000004D;
+        }
+
+        .collection {
+            display: flex;
+            flex-wrap: wrap; /* Позволяет элементам переноситься на следующую строку */
+            justify-content: space-between; /* Разделение элементов по всей ширине */
+            gap: 20px;
+        }
+
+        .plantInfo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            width: 100%; /* Устанавливаем ширину на 100% родительского контейнера */
+            height: 100%;
+        }
+
+        .plantName {
+            font-size: 20px;
+            font-weight: 800;
+        }
+
+        .plantImage {
+            max-width: 100%; /* Устанавливаем максимальную ширину изображения */
+            max-height: 100%;
+        }
+    }
 }
