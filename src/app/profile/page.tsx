@@ -12,7 +12,7 @@ import { ObjectId } from "mongoose";
 
 const getProfile = async () => {
   try {
-    const res = await fetch("http://localhost:3001/api/profileApi", {
+    const res = await fetch("http://localhost:3000/api/profileApi", {
       cache: "no-store"
     });
     if (!res.ok) {
