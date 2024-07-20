@@ -71,7 +71,7 @@ const FlowerElement = () => {
           </div>
         </div>
         <div className={styles.buttonContainer}>
-          <Link className={styles.button} href={`/editFlowers/${id}`}>
+          <Link className={styles.button} href={`/editFlowers/${searchParams.get("_id")}`}>
             <Image
               className={styles.buttonImage}
               src={editPhoto}
