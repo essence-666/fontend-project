@@ -16,17 +16,21 @@ const AddFlowerPage = () => {
     const [name, setName] = useState<string>("");
     const [scientificName, setScientificName] = useState<string>("");
     const [location, setLocation] = useState<string>("");
-    const [frequencyWatering, setFrequencyWatering] = useState<string>("");
+    const [frequencyWatering, setFrequencyWatering] = useState<number>();
     const [wateringChanges, setWateringChanges] = useState<string>("");
 
     const router = useRouter();
 
-    // Измените тип события на более конкретный
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
+        
+        if (typeof frequencyWatering != "number" || frequencyWatering === null || isNaN(frequencyWatering)) {
+            alert("Check that the first parameter in watering is number")
+            return;
+        }
 
-        if (!name || !location || !frequencyWatering || !wateringChanges) {
-            alert("All required fields are required");
+        if (!name || !location || !wateringChanges) {
+            alert("All not optional fields are required");
             return;
         }
 
@@ -98,7 +102,11 @@ const AddFlowerPage = () => {
                             <div className={styles.head}>(optional)</div>
                         </div>
                         <input 
-                            onChange={(e) => setScientificName(e.target.value)}
+                            onChange={(e) => {
+                                if (!e.target.value) {
+                                    setScientificName(name)
+                                }
+                            }}
                             className={styles.labelContainerLong} 
                             placeholder="Scientific name..."
                         />
@@ -134,7 +142,7 @@ const AddFlowerPage = () => {
                         <div className={styles.wateringContainer}>
                             <div className={styles.head}>Every</div>
                             <input 
-                                onChange={(e) => setFrequencyWatering(e.target.value)}
+                                onChange={(e) => setFrequencyWatering(Number.parseInt(e.target.value))}
                                 className={styles.labelContainerSmall} 
                                 placeholder="Number..."
                             />

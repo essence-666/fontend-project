@@ -21,7 +21,8 @@ const getFlowerById = async (id: string) => {
     }
     return res.json();
   } catch (error) {
-    return [];
+    console.error(error); // Добавим логирование ошибки
+    return null;
   }
 };
 
@@ -31,14 +32,16 @@ const EditFlowerPage = ({ params }: { params: { id: string } }) => {
   const [newName, setNewName] = useState("");
   const [newScientificName, setScientificName] = useState("");
   const [newLocation, setLocation] = useState("");
-  const [newFrequencyWatering, setFrequencyWatering] = useState("");
+  const [newFrequencyWatering, setFrequencyWatering] = useState<number>();
   const [newWateringChanges, setWateringChanges] = useState<string>("");
 
   const router = useRouter();
 
   useEffect(() => {
-    const fetchProfile = async () => {
-      const { flower } = await getFlowerById(id);
+    const fetchFlower = async () => {
+      const data = await getFlowerById(id);
+ 
+      const flower = data.profile;
       setFlower(flower);
       setNewName(flower.name);
       setScientificName(flower.scientificName);
@@ -47,17 +50,29 @@ const EditFlowerPage = ({ params }: { params: { id: string } }) => {
       setWateringChanges(flower.wateringChanges);
     };
 
-    fetchProfile();
+    fetchFlower();
   }, [id]);
 
-  // Измените тип события на более конкретный
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    // if (!name || !location || !frequencyWatering || !wateringChanges) {
-    //     alert("All required fields are required");
-    //     return;
-    // }
+    console.log({
+      newName,
+      newScientificName,
+      newLocation,
+      newFrequencyWatering,
+      newWateringChanges
+    });
+
+    if (typeof newFrequencyWatering != "number" || newFrequencyWatering === null || isNaN(newFrequencyWatering)) {
+      alert("Check that the first parameter in watering is number");
+      return;
+    }
+
+    if (!newName || !newLocation || !newWateringChanges) {
+      alert("All not optional fields are required");
+      return;
+    }
 
     try {
       const res = await fetch(`${URL}/api/flowersApi/${id}`, {
@@ -66,18 +81,18 @@ const EditFlowerPage = ({ params }: { params: { id: string } }) => {
           "Content-type": "application/json",
         },
         body: JSON.stringify({
-          newName,
-          newScientificName,
-          newLocation,
-          newFrequencyWatering,
-          newWateringChanges,
+          newName: newName,
+          newScientificName: newScientificName,
+          newLocation: newLocation,
+          newFrequencyWatering: newFrequencyWatering,
+          newWateringChanges: newWateringChanges,
         }),
       });
 
       if (res.ok) {
         router.push("/profile");
       } else {
-        throw new Error("Failed to create a flower");
+        throw new Error("Failed to update the flower");
       }
     } catch (error) {
       console.error(error);
@@ -172,7 +187,7 @@ const EditFlowerPage = ({ params }: { params: { id: string } }) => {
             <div className={styles.wateringContainer}>
               <div className={styles.head}>Every</div>
               <input
-                onChange={(e) => setFrequencyWatering(e.target.value)}
+                onChange={(e) => setFrequencyWatering(Number.parseInt(e.target.value))}
                 value={newFrequencyWatering}
                 className={styles.labelContainerSmall}
                 placeholder="Number..."

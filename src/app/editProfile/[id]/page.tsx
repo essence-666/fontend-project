@@ -52,8 +52,18 @@ const EditProfilePage = ({ params }: { params: { id: string } }) => {
     fetchProfile();
   }, [id]);
 
-  const handleSubmit = async (e: any) => {
+  const validateEmail = (email: string) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  };
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
+    if (!validateEmail(newEmail)) {
+      alert("Please enter a valid email address");
+      return;
+    }
 
     try {
       const res = await fetch(`${URL}/api/profileApi/${id}`, {
@@ -125,6 +135,7 @@ const EditProfilePage = ({ params }: { params: { id: string } }) => {
                 />
               </div>
               <input
+                type="email"
                 onChange={(e) => setNewEmail(e.target.value)}
                 value={newEmail}
                 className={styles.labelContainer}
