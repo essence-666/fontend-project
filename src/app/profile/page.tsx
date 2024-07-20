@@ -1,12 +1,12 @@
-import Link from "next/link";
-import styles from "../styles/profile.module.css";
-import Image from "next/image";
-import emailIcon from "../../../public/assets/emailSign.png";
-import locationIcon from "../../../public/assets/locationSign.png";
-import profilePhoto from "../../../public/assets/person.jpeg";
-import romashiPhoto from "../../../public/assets/romashki.png";
-import editPhoto from "../../../public/assets/edit.png";
-import addPhoto from "../../../public/assets/add.png";
+import Link from 'next/link';
+import styles from '../styles/profile.module.css';
+import Image from 'next/image';
+import emailIcon from '../../../public/assets/emailSign.png';
+import locationIcon from '../../../public/assets/locationSign.png';
+import profilePhoto from '../../../public/assets/person.jpeg';
+import romashiPhoto from '../../../public/assets/romashki.png';
+import editPhoto from '../../../public/assets/edit.png';
+import addPhoto from '../../../public/assets/add.png';
 import {
   ReactElement,
   JSXElementConstructor,
@@ -14,10 +14,10 @@ import {
   ReactPortal,
   AwaitedReactNode,
   Key,
-} from "react";
-import { error } from "console";
-import Flower from "../models/flower";
-import { URL } from "../config";
+} from 'react';
+import { error } from 'console';
+import Flower from '../models/flower';
+import { URL } from '../config';
 
 interface Flower {
   map(
@@ -31,7 +31,7 @@ interface Flower {
         wateringChanges: string;
       },
       index: Key | null | undefined,
-    ) => import("react").JSX.Element,
+    ) => import('react').JSX.Element,
   ): ReactNode;
   _id: string;
   name: string;
@@ -44,10 +44,10 @@ interface Flower {
 const getProfile = async () => {
   try {
     const res = await fetch(`${URL}/api/profileApi`, {
-      cache: "no-store",
+      cache: 'no-store',
     });
     if (!res.ok) {
-      throw new Error("Failed to get profile editions");
+      throw new Error('Failed to get profile editions');
     }
     return res.json();
   } catch (error) {
@@ -58,10 +58,10 @@ const getProfile = async () => {
 const getFlowers = async (): Promise<Flower[]> => {
   try {
     const res = await fetch(`${URL}/api/flowersApi`, {
-      cache: "no-store",
+      cache: 'no-store',
     });
     if (!res.ok) {
-      throw new Error("Failed to get flowers");
+      throw new Error('Failed to get flowers');
     }
     const data: { [key: string]: Flower } = await res.json();
     return Object.values(data);
@@ -84,7 +84,7 @@ const profilePage = async () => {
           <Image
             className={styles.image}
             src={profilePhoto}
-            alt={"personInitPage"}
+            alt={'personInitPage'}
             width={100}
             height={100}
           />
@@ -92,10 +92,10 @@ const profilePage = async () => {
             (
               prof: {
                 _id: string;
-                place: String;
-                email: String;
-                description: String;
-                name: String;
+                place: string;
+                email: string;
+                description: string;
+                name: string;
               },
               index: Key | null | undefined,
             ) => (
@@ -105,7 +105,7 @@ const profilePage = async () => {
                   <Image
                     className={styles.miniImage}
                     src={locationIcon}
-                    alt={"personInitPage"}
+                    alt={'personInitPage'}
                     width={20}
                     height={15}
                   />
@@ -115,18 +115,21 @@ const profilePage = async () => {
                   <Image
                     className={styles.miniImage}
                     src={emailIcon}
-                    alt={"personInitPage"}
+                    alt={'personInitPage'}
                     width={20}
                     height={15}
                   />
                   {prof.email}
                 </div>
                 <div className={styles.descriptionText}>{prof.description}</div>
-                <Link className={styles.editButton} href={`/editProfile/${prof._id}`}>
+                <Link
+                  className={styles.editButton}
+                  href={`/editProfile/${prof._id}`}
+                >
                   <Image
                     className={styles.editImage}
                     src={editPhoto}
-                    alt={"personInitPage"}
+                    alt={'personInitPage'}
                     width={50}
                     height={50}
                   />
@@ -183,7 +186,7 @@ const profilePage = async () => {
             <Image
               className={styles.editImage}
               src={addPhoto}
-              alt={"personInitPage"}
+              alt={'personInitPage'}
               width={50}
               height={50}
             />
@@ -202,34 +205,34 @@ const profilePage = async () => {
               },
               index: Key | null | undefined,
             ) => (
-            <Link
-              key={index}
-              href={{
-                pathname: '/flowerElement',
-                query: {
-                  _id: flow._id,
-                  name: flow.name,
-                  scientificName: flow.scientificName,
-                  location: flow.location,
-                  frequencyWatering: flow.frequencyWatering,
-                  wateringChanges: flow.wateringChanges,
-                },
-              }}  
-              passHref
-            >
-              <button className={styles.plant}>
-                <div className={styles.plantInfo}>
-                  <Image
-                    className={styles.plantImage}
-                    src={romashiPhoto}
-                    alt={"personInitPage"}
-                    width={166}
-                    height={134}
-                  />
-                  <p className={styles.plantName}> {flow.name} </p>
-                </div>
-              </button>
-            </Link>
+              <Link
+                key={index}
+                href={{
+                  pathname: '/flowerElement',
+                  query: {
+                    _id: flow._id,
+                    name: flow.name,
+                    scientificName: flow.scientificName,
+                    location: flow.location,
+                    frequencyWatering: flow.frequencyWatering,
+                    wateringChanges: flow.wateringChanges,
+                  },
+                }}
+                passHref
+              >
+                <button className={styles.plant}>
+                  <div className={styles.plantInfo}>
+                    <Image
+                      className={styles.plantImage}
+                      src={romashiPhoto}
+                      alt={'personInitPage'}
+                      width={166}
+                      height={134}
+                    />
+                    <p className={styles.plantName}> {flow.name} </p>
+                  </div>
+                </button>
+              </Link>
             ),
           )}
         </div>

@@ -1,264 +1,264 @@
 .reminderTextBox::-webkit-scrollbar {
-    width: 0;
+  width: 0;
 }
 
 .reminderTextBoxToday::-webkit-scrollbar {
-    width: 0;
+  width: 0;
 }
 
 .reminderElement::-webkit-scrollbar {
-    width: 0;
+  width: 0;
 }
 
 .reminders::-webkit-scrollbar {
-    width: 0;
+  width: 0;
 }
 
 .remindersToday::-webkit-scrollbar {
-    width: 0;
+  width: 0;
 }
 
 /* 
 Все что связано с reminder.tsx
 */
-.reminderElementToday{
-    width: calc(121px * 1.25);
-    height: calc(80px * 1.25);
-    border-radius: calc(15px * 1.25);
-    padding-left: calc(10px * 1.25);
-    padding-right: calc(10px * 1.25);
-    padding-top: calc(5px * 1.25);
-    padding-bottom: calc(5px * 1.25);
-    display: flex;
-    background-color: #AEB8C7;
-    word-wrap:break-word;
-    align-items: center;
-    overflow: auto;
-    /* overflow-y: overlay; */
+.reminderElementToday {
+  width: calc(121px * 1.25);
+  height: calc(80px * 1.25);
+  border-radius: calc(15px * 1.25);
+  padding-left: calc(10px * 1.25);
+  padding-right: calc(10px * 1.25);
+  padding-top: calc(5px * 1.25);
+  padding-bottom: calc(5px * 1.25);
+  display: flex;
+  background-color: #aeb8c7;
+  word-wrap: break-word;
+  align-items: center;
+  overflow: auto;
+  /* overflow-y: overlay; */
 }
 
-.reminderTextBoxToday{
-    width: calc(81px * 1.25);
-    height: calc(42px * 1.25);
-    word-wrap:break-word;
-    display: flex;
-    word-wrap: break-word;
-    overflow:auto;
-    /* overflow-y: overlay; */
+.reminderTextBoxToday {
+  width: calc(81px * 1.25);
+  height: calc(42px * 1.25);
+  word-wrap: break-word;
+  display: flex;
+  word-wrap: break-word;
+  overflow: auto;
+  /* overflow-y: overlay; */
 }
 
-.reminderTextToday{
-    margin:auto;
-    font-weight: 400;
-    font-size: 24px;
+.reminderTextToday {
+  margin: auto;
+  font-weight: 400;
+  font-size: 24px;
 }
 
-.reminderElement{
-    width: 121px;
-    height: 80px;
-    border-radius: 15px;
-    padding-left: 10px;
-    padding-right: 10px;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    display: flex;
-    background-color: #AEB8C7;
-    word-wrap:break-word;
-    align-items: center;
-    overflow: auto;
-    /* overflow-y: overlay; */
+.reminderElement {
+  width: 121px;
+  height: 80px;
+  border-radius: 15px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  display: flex;
+  background-color: #aeb8c7;
+  word-wrap: break-word;
+  align-items: center;
+  overflow: auto;
+  /* overflow-y: overlay; */
 }
 
-.reminderTextBox{
-    width: 81px;
-    height: 42px;
-    word-wrap:break-word;
-    display: flex;
-    word-wrap: break-word;
-    overflow:auto;
-    /* overflow-y: overlay; */
+.reminderTextBox {
+  width: 81px;
+  height: 42px;
+  word-wrap: break-word;
+  display: flex;
+  word-wrap: break-word;
+  overflow: auto;
+  /* overflow-y: overlay; */
 }
 
-.reminderText{
-    margin:auto;
-    font-weight: 400;
-    font-size: 24px;
+.reminderText {
+  margin: auto;
+  font-weight: 400;
+  font-size: 24px;
 }
 
-input[type = 'checkbox'].isDone{
-    -webkit-appearance: none;
-    appearance: none;
-    outline: none;
+input[type='checkbox'].isDone {
+  -webkit-appearance: none;
+  appearance: none;
+  outline: none;
 }
-input[type = 'checkbox'].isDone{
-    width: 34.5px;
-    height: 34.5px;
-    background-color: white;
-    border-radius: 25px;
-    border: 1.5px solid;
-    border-color: black;
-    text-align: center;    
+input[type='checkbox'].isDone {
+  width: 34.5px;
+  height: 34.5px;
+  background-color: white;
+  border-radius: 25px;
+  border: 1.5px solid;
+  border-color: black;
+  text-align: center;
 }
-input[type = 'checkbox'].isDone:before{
-    content: '\2713';
-    display: inline-block;
-    color: black;
-    font-size: 30px;
-    line-height: 30px;
-    -webkit-transform: scale(0);
-    transform: scale(0);
-    -webkit-transition: 0.3s;
-    transition: 0.3s;
+input[type='checkbox'].isDone:before {
+  content: '\2713';
+  display: inline-block;
+  color: black;
+  font-size: 30px;
+  line-height: 30px;
+  -webkit-transform: scale(0);
+  transform: scale(0);
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
 }
-input[type = 'checkbox'].isDone:checked:before{    
-    -webkit-transform: scale(1);
-    transform: scale(1);
+input[type='checkbox'].isDone:checked:before {
+  -webkit-transform: scale(1);
+  transform: scale(1);
 }
 
 /* 
 Все что связано с day.tsx
 */
 
-.dayElementToday{
-    width: calc(121px * 1.25);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    grid-gap: 22px;
+.dayElementToday {
+  width: calc(121px * 1.25);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  grid-gap: 22px;
 }
 
-.dateNumBoxToday{
-    width: calc(66.89px * 1.25);
-    height: calc(66.89px * 1.25);
-    border-radius: calc(150px * 1.25);
-    background-color: #00696F;
-    text-align: center;
+.dateNumBoxToday {
+  width: calc(66.89px * 1.25);
+  height: calc(66.89px * 1.25);
+  border-radius: calc(150px * 1.25);
+  background-color: #00696f;
+  text-align: center;
 }
 
-.dateNumToday{
-    padding-top: 25%;
-    font-weight: 400;
-    font-size: 35px;
-    color: #FFFFFF;
+.dateNumToday {
+  padding-top: 25%;
+  font-weight: 400;
+  font-size: 35px;
+  color: #ffffff;
 }
 
-.dateTextToday{
-    font-weight: 400;
-    font-size: 35px;
-    color: black;
+.dateTextToday {
+  font-weight: 400;
+  font-size: 35px;
+  color: black;
 }
 
-.remindersToday{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    grid-gap: 12px;
-    overflow: scroll;
-    height: 500px;
+.remindersToday {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  grid-gap: 12px;
+  overflow: scroll;
+  height: 500px;
 }
 
-.dayElement{
-    width: 121px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    grid-gap: 15px;
+.dayElement {
+  width: 121px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  grid-gap: 15px;
 }
 
-.dateNumBox{
-    width: 66.89px;
-    height: 66.89px;
-    border-radius: 150px;
-    background-color: #B9BCB9;
-    text-align: center;
+.dateNumBox {
+  width: 66.89px;
+  height: 66.89px;
+  border-radius: 150px;
+  background-color: #b9bcb9;
+  text-align: center;
 }
 
-.dateNum{
-    margin-left: 0%;
-    padding-top: 28%;
-    font-weight: 400;
-    font-size: 24px;
-    color: #FFFFFF;
+.dateNum {
+  margin-left: 0%;
+  padding-top: 28%;
+  font-weight: 400;
+  font-size: 24px;
+  color: #ffffff;
 }
 
-.dateText{
-    margin-left: 0%;
-    font-weight: 400;
-    font-size: 24px;
-    color: black;
+.dateText {
+  margin-left: 0%;
+  font-weight: 400;
+  font-size: 24px;
+  color: black;
 }
 
-.reminders{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    grid-gap: 8px;
-    overflow: scroll;
-    height: 545px;
+.reminders {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  grid-gap: 8px;
+  overflow: scroll;
+  height: 545px;
 }
 
 /* 
 Все что связано с page.tsx
 */
 
-.calendarName{
-    margin-left: 40px;
-    margin-top: 100px;
-    font-weight: 700;
-    font-size: 36px;
-    color: black;
+.calendarName {
+  margin-left: 40px;
+  margin-top: 100px;
+  font-weight: 700;
+  font-size: 36px;
+  color: black;
 }
 
-.calendar{
-    width: 1340px;
-    height: 769px;
-    border-radius: 40px;
-    background-color: #FFFFFF;
-    border-style: solid;
-    border-width: 1px;
-    border-color: #858585;
-    margin-bottom: 50px;
-    margin-left: 40px;
+.calendar {
+  width: 1340px;
+  height: 769px;
+  border-radius: 40px;
+  background-color: #ffffff;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #858585;
+  margin-bottom: 50px;
+  margin-left: 40px;
 }
 
-.monthSelector{
-    width: 1260px;
-    height: 70px;
-    border-bottom-width: 1px;
-    border-bottom-style: solid;
-    border-bottom-color: black;
-    margin-left: 40px;
-    margin-right: 40px;
-    display: flex;
+.monthSelector {
+  width: 1260px;
+  height: 70px;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-bottom-color: black;
+  margin-left: 40px;
+  margin-right: 40px;
+  display: flex;
 }
 
-.month{
-    margin: 0px;
-    padding-top: 25px;
-    font-weight: 400;
-    font-size: 32px;
-    color: black;
-    vertical-align: top;
+.month {
+  margin: 0px;
+  padding-top: 25px;
+  font-weight: 400;
+  font-size: 32px;
+  color: black;
+  vertical-align: top;
 }
 
-.button{
-    width: 48px;
-    height: 48px;
-    background-color: white;
-    border-width: 0px;
-    margin-top: 10px;
-    padding-right: 0%;
-    padding-left: 0%;
-    padding-bottom: 0px;
+.button {
+  width: 48px;
+  height: 48px;
+  background-color: white;
+  border-width: 0px;
+  margin-top: 10px;
+  padding-right: 0%;
+  padding-left: 0%;
+  padding-bottom: 0px;
 }
 
-.calendarDates{
-    align-self:end;
-    width: 1260px;
-    height: 641px;
-    margin-left: 44px;
-    padding-top: 12px;
-    display: flex;
-    vertical-align: top;
-    gap: 60px;
+.calendarDates {
+  align-self: end;
+  width: 1260px;
+  height: 641px;
+  margin-left: 44px;
+  padding-top: 12px;
+  display: flex;
+  vertical-align: top;
+  gap: 60px;
 }

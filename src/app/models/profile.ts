@@ -1,18 +1,19 @@
-import mongoose, {Schema} from "mongoose";
+import mongoose, { Schema } from 'mongoose';
 
 const profileSchema = new Schema(
-    {
-        name: String,
-        place: String,
-        email: String,
-        description: String
-    },
+  {
+    name: String,
+    place: String,
+    email: String,
+    description: String,
+  },
 
-    {
-        timestamps:true
-    }
+  {
+    timestamps: true,
+  },
 );
 
-const Profile = mongoose.models.Profile || mongoose.model("Profile", profileSchema);
+const Profile =
+  mongoose.models.Profile || mongoose.model('Profile', profileSchema);
 
 export default Profile;

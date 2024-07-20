@@ -1,41 +1,41 @@
-"use client";
+'use client';
 
-import { Suspense } from "react";
-import { useSearchParams } from "next/navigation";
-import Image from "next/image";
-import styles from "../styles/flowerElement.module.css";
-import romashkiPhoto from "../../../public/assets/romashki.png";
-import editPhoto from "../../../public/assets/editSecond.png";
-import delPhoto from "../../../public/assets/trashCan.png";
-import Link from "next/link";
-import { URL } from "../config";
+import { Suspense } from 'react';
+import { useSearchParams } from 'next/navigation';
+import Image from 'next/image';
+import styles from '../styles/flowerElement.module.css';
+import romashkiPhoto from '../../../public/assets/romashki.png';
+import editPhoto from '../../../public/assets/editSecond.png';
+import delPhoto from '../../../public/assets/trashCan.png';
+import Link from 'next/link';
+import { URL } from '../config';
 
 const FlowerElement = () => {
   const searchParams = useSearchParams();
   if (!searchParams) return <div>Loading...</div>;
 
-  const id = searchParams.get("_id");
-  const name = searchParams.get("name");
-  const scientificName = searchParams.get("scientificName");
-  const location = searchParams.get("location");
-  const frequencyWatering = searchParams.get("frequencyWatering");
-  const wateringChanges = searchParams.get("wateringChanges");
+  const id = searchParams.get('_id');
+  const name = searchParams.get('name');
+  const scientificName = searchParams.get('scientificName');
+  const location = searchParams.get('location');
+  const frequencyWatering = searchParams.get('frequencyWatering');
+  const wateringChanges = searchParams.get('wateringChanges');
 
   const removeFlower = async () => {
-    const confirmed = confirm("Are you sure?");
+    const confirmed = confirm('Are you sure?');
 
     if (confirmed) {
       try {
         const res = await fetch(`${URL}/api/flowersApi?id=${id}`, {
-          method: "DELETE",
+          method: 'DELETE',
         });
         if (!res.ok) {
-          throw new Error("Failed to delete flower");
+          throw new Error('Failed to delete flower');
         }
-        alert("Flower deleted successfully");
+        alert('Flower deleted successfully');
       } catch (error) {
-        console.error("Error deleting flower:", error);
-        alert("An error occurred while deleting the flower");
+        console.error('Error deleting flower:', error);
+        alert('An error occurred while deleting the flower');
       }
     }
   };
@@ -46,7 +46,7 @@ const FlowerElement = () => {
         <Image
           className={styles.image}
           src={romashkiPhoto}
-          alt={"flowerImage"}
+          alt={'flowerImage'}
           width={250}
           height={250}
         />
@@ -75,7 +75,7 @@ const FlowerElement = () => {
             <Image
               className={styles.buttonImage}
               src={editPhoto}
-              alt={"editBtnImg"}
+              alt={'editBtnImg'}
               width={50}
               height={50}
             />
@@ -83,12 +83,12 @@ const FlowerElement = () => {
           <Link
             onClick={removeFlower}
             className={styles.button}
-            href={"/profile"}
+            href={'/profile'}
           >
             <Image
               className={styles.buttonImage}
               src={delPhoto}
-              alt={"delBtnImg"}
+              alt={'delBtnImg'}
               width={50}
               height={50}
             />
