@@ -1,4 +1,4 @@
-import styles from "../styles/profile.module.css";
+import styles from '../styles/profile.module.css';
 
 export default function FlowerContainer() {
   return (

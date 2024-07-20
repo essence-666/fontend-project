@@ -1,23 +1,23 @@
-"use client";
+'use client';
 
-import styles from "../../styles/editFlowers.module.css";
-import editPhoto from "../../../../public/assets/editSecond.png";
-import photoPhoto from "../../../../public/assets/photo.png";
-import lupaPhoto from "../../../../public/assets/lupa.png";
-import homePhoto from "../../../../public/assets/home.png";
-import dropPhoto from "../../../../public/assets/drop.png";
-import Image from "next/image";
-import { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
-import { URL } from "@/app/config";
+import styles from '../../styles/editFlowers.module.css';
+import editPhoto from '../../../../public/assets/editSecond.png';
+import photoPhoto from '../../../../public/assets/photo.png';
+import lupaPhoto from '../../../../public/assets/lupa.png';
+import homePhoto from '../../../../public/assets/home.png';
+import dropPhoto from '../../../../public/assets/drop.png';
+import Image from 'next/image';
+import { useEffect, useState } from 'react';
+import { useRouter } from 'next/navigation';
+import { URL } from '@/app/config';
 
 const getFlowerById = async (id: string) => {
   try {
     const res = await fetch(`${URL}/api/flowersApi/${id}`, {
-      cache: "no-store",
+      cache: 'no-store',
     });
     if (!res.ok) {
-      throw new Error("Failed to get flower editions");
+      throw new Error('Failed to get flower editions');
     }
     return res.json();
   } catch (error) {
@@ -28,11 +28,11 @@ const getFlowerById = async (id: string) => {
 const EditFlowerPage = ({ params }: { params: { id: string } }) => {
   const { id } = params;
   const [flower, setFlower] = useState(null);
-  const [newName, setNewName] = useState("");
-  const [newScientificName, setScientificName] = useState("");
-  const [newLocation, setLocation] = useState("");
-  const [newFrequencyWatering, setFrequencyWatering] = useState("");
-  const [newWateringChanges, setWateringChanges] = useState<string>("");
+  const [newName, setNewName] = useState('');
+  const [newScientificName, setScientificName] = useState('');
+  const [newLocation, setLocation] = useState('');
+  const [newFrequencyWatering, setFrequencyWatering] = useState('');
+  const [newWateringChanges, setWateringChanges] = useState<string>('');
 
   const router = useRouter();
 
@@ -61,9 +61,9 @@ const EditFlowerPage = ({ params }: { params: { id: string } }) => {
 
     try {
       const res = await fetch(`${URL}/api/flowersApi/${id}`, {
-        method: "PUT",
+        method: 'PUT',
         headers: {
-          "Content-type": "application/json",
+          'Content-type': 'application/json',
         },
         body: JSON.stringify({
           newName,
@@ -75,9 +75,9 @@ const EditFlowerPage = ({ params }: { params: { id: string } }) => {
       });
 
       if (res.ok) {
-        router.push("/profile");
+        router.push('/profile');
       } else {
-        throw new Error("Failed to create a flower");
+        throw new Error('Failed to create a flower');
       }
     } catch (error) {
       console.error(error);
@@ -87,7 +87,7 @@ const EditFlowerPage = ({ params }: { params: { id: string } }) => {
   return (
     <form onSubmit={handleSubmit}>
       <div className={styles.container}>
-        <p className={styles.path}>Home {">"} Edit flower</p>
+        <p className={styles.path}>Home {'>'} Edit flower</p>
         <div className={styles.editContainer}>
           <div className={styles.nameAndPhoto}>
             <div className={styles.name}>
@@ -96,7 +96,7 @@ const EditFlowerPage = ({ params }: { params: { id: string } }) => {
                 <Image
                   className={styles.image}
                   src={editPhoto}
-                  alt={"Edit icon"}
+                  alt={'Edit icon'}
                   width={23}
                   height={23}
                 />
@@ -114,7 +114,7 @@ const EditFlowerPage = ({ params }: { params: { id: string } }) => {
                 <Image
                   className={styles.image}
                   src={photoPhoto}
-                  alt={"Photo icon"}
+                  alt={'Photo icon'}
                   width={23}
                   height={23}
                 />
@@ -127,7 +127,7 @@ const EditFlowerPage = ({ params }: { params: { id: string } }) => {
               <Image
                 className={styles.image}
                 src={lupaPhoto}
-                alt={"Scientific name icon"}
+                alt={'Scientific name icon'}
                 width={23}
                 height={23}
               />
@@ -146,7 +146,7 @@ const EditFlowerPage = ({ params }: { params: { id: string } }) => {
               <Image
                 className={styles.image}
                 src={homePhoto}
-                alt={"Location icon"}
+                alt={'Location icon'}
                 width={23}
                 height={23}
               />
@@ -164,7 +164,7 @@ const EditFlowerPage = ({ params }: { params: { id: string } }) => {
               <Image
                 className={styles.image}
                 src={dropPhoto}
-                alt={"Watering icon"}
+                alt={'Watering icon'}
                 width={23}
                 height={23}
               />

@@ -1,7 +1,7 @@
-import React from "react";
-import styles from "../styles/search.module.css";
-import Image from "next/image";
-import search from "../../../public/searchImage.png";
+import React from 'react';
+import styles from '../styles/search.module.css';
+import Image from 'next/image';
+import search from '../../../public/searchImage.png';
 
 const Search = () => {
   return (

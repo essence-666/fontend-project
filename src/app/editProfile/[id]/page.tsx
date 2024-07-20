@@ -1,26 +1,25 @@
-"use client";
+'use client';
 
-import styles from "../../styles/editProfile.module.css";
+import styles from '../../styles/editProfile.module.css';
 
-import editPhoto from "../../../../public/assets/editSecond.png"
-import photoPhoto from "../../../../public/assets/photo.png";
-import emailPhoto from "../../../../public/assets/emailSign.png";
-import homePhoto from "../../../../public/assets/home.png";
-import Image from "next/image";
-import { useState, useEffect } from "react";
-import { useRouter } from "next/navigation";
-import { UploadButton } from "@/utils/uploadthings";
-import buttonAppearance from "../../../../public/buttonAppearance"
-import { URL } from "@/app/config";
-
+import editPhoto from '../../../../public/assets/editSecond.png';
+import photoPhoto from '../../../../public/assets/photo.png';
+import emailPhoto from '../../../../public/assets/emailSign.png';
+import homePhoto from '../../../../public/assets/home.png';
+import Image from 'next/image';
+import { useState, useEffect } from 'react';
+import { useRouter } from 'next/navigation';
+import { UploadButton } from '@/utils/uploadthings';
+import buttonAppearance from '../../../../public/buttonAppearance';
+import { URL } from '@/app/config';
 
 const getProfileById = async (id: string) => {
   try {
     const res = await fetch(`${URL}/api/profileApi/${id}`, {
-      cache: "no-store",
+      cache: 'no-store',
     });
     if (!res.ok) {
-      throw new Error("Failed to get profile editions");
+      throw new Error('Failed to get profile editions');
     }
     return res.json();
   } catch (error) {
@@ -31,11 +30,11 @@ const getProfileById = async (id: string) => {
 const EditProfilePage = ({ params }: { params: { id: string } }) => {
   const { id } = params;
   const [profile, setProfile] = useState(null);
-  const [newName, setNewName] = useState("");
-  const [newPlace, setNewPlace] = useState("");
-  const [newEmail, setNewEmail] = useState("");
-  const [newDescription, setNewDescription] = useState("");
-  const [imageUrl, setImageUrl] = useState<string>("");
+  const [newName, setNewName] = useState('');
+  const [newPlace, setNewPlace] = useState('');
+  const [newEmail, setNewEmail] = useState('');
+  const [newDescription, setNewDescription] = useState('');
+  const [imageUrl, setImageUrl] = useState<string>('');
 
   const router = useRouter();
 
@@ -57,18 +56,18 @@ const EditProfilePage = ({ params }: { params: { id: string } }) => {
 
     try {
       const res = await fetch(`${URL}/api/profileApi/${id}`, {
-        method: "PUT",
+        method: 'PUT',
         headers: {
-          "Content-type": "application/json",
+          'Content-type': 'application/json',
         },
         body: JSON.stringify({ newName, newEmail, newPlace, newDescription }),
       });
 
       if (!res.ok) {
-        throw new Error("Failed to update topic");
+        throw new Error('Failed to update topic');
       }
 
-      router.push("/profile");
+      router.push('/profile');
     } catch (error) {
       console.log(error);
     }
@@ -77,7 +76,7 @@ const EditProfilePage = ({ params }: { params: { id: string } }) => {
   return (
     <form onSubmit={handleSubmit}>
       <div className={styles.container}>
-        <p className={styles.path}> Home {">"} Edit profile </p>
+        <p className={styles.path}> Home {'>'} Edit profile </p>
         <div className={styles.editContainer}>
           <div className={styles.nameAndPhoto}>
             <div className={styles.name}>
@@ -86,7 +85,7 @@ const EditProfilePage = ({ params }: { params: { id: string } }) => {
                 <Image
                   className={styles.image}
                   src={editPhoto}
-                  alt={"personInitPage"}
+                  alt={'personInitPage'}
                   width={23}
                   height={23}
                 />
@@ -100,7 +99,7 @@ const EditProfilePage = ({ params }: { params: { id: string } }) => {
             </div>
             <div className={styles.photo}>
               <div className={styles.head}>Photo</div>
-                <UploadButton
+              <UploadButton
                 appearance={buttonAppearance}
                 endpoint="imageUploader"
                 onClientUploadComplete={(res) => {
@@ -109,7 +108,7 @@ const EditProfilePage = ({ params }: { params: { id: string } }) => {
                 onUploadError={(error: Error) => {
                   alert(`ERROR! ${error.message}`);
                 }}
-                />
+              />
             </div>
           </div>
           <div className={styles.emailAndLocation}>
@@ -119,7 +118,7 @@ const EditProfilePage = ({ params }: { params: { id: string } }) => {
                 <Image
                   className={styles.image}
                   src={emailPhoto}
-                  alt={"personInitPage"}
+                  alt={'personInitPage'}
                   width={23}
                   height={23}
                 />
@@ -137,7 +136,7 @@ const EditProfilePage = ({ params }: { params: { id: string } }) => {
                 <Image
                   className={styles.image}
                   src={homePhoto}
-                  alt={"personInitPage"}
+                  alt={'personInitPage'}
                   width={23}
                   height={23}
                 />
