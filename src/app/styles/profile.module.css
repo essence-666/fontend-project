@@ -211,6 +211,7 @@
     background: #DEEAEA;
     border: 2px solid black;
     overflow: auto;
+    height: 80vh;
 }
 
 .collectionPreview {
